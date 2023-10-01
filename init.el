@@ -95,19 +95,19 @@
 
 
 ;; placeholder root hydra entry point
-(defhydra hydra (:color blue :exit t)
+(defhydra hydra (:exit t)
   "hydra"
   ("i" hydra-ivy/body "ivy")
   ("a" hydra-avy/body "avy")
   ("w" hydra-windows/body "windows")
   ("q" nil "quit"))
 
-(defhydra hydra-windows (:color red :exit t)
+(defhydra hydra-windows (:exit t)
   "windows"
   ("s" window-swap-states "swap")
   ("r" resize-window "resize"))
 
-(defhydra hydra-avy (:color white :exit t)
+(defhydra hydra-avy (:exit t)
   "avy"
   ("a" avy-goto-char "char")
   ("s" avy-goto-char-2 "char2")
