@@ -50,7 +50,11 @@
  )
 
 
-(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+(setq inferior-lisp-program
+      (case system-type
+	    (gnu/linux "/usr/bin/sbcl")	;TODO: maybe check if this exists then use /opt/bin/sbcl if not?
+	    (darwin "/opt/homebrew/bin/sbcl")
+	    (windows-nt "C:/SBCL/bin/sbcl"))) ;TODO: update this when I confirm the path
 
 (add-hook 'after-init-hook 'global-company-mode)
 
