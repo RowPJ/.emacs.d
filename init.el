@@ -122,6 +122,6 @@
 ;; custom keybinds
 (global-set-key (kbd "C-c h") 'hydra/body)
 (global-set-key (kbd "C-c s") 'swiper)
-(global-set-key (kbd "C-c c") 'avy-goto-char)
+(global-set-key (kbd "C-c f") 'reveal-in-folder) ;open file in finder / file explorer etc.
 
 (autoload 'idomenu "idomenu" nil t)
