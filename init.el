@@ -1,3 +1,6 @@
+;; avoid unset variable warning popup at startup
+(setq latex-extra-mode nil)
+
 ;; ensure packages are installed
 (require 'use-package)
 (use-package "avy")
