@@ -144,6 +144,7 @@
 (eval-after-load "company"
   '(add-to-list 'company-backends 'company-anaconda))
 
+;; on macos, make command and option keys meta key
 (setq mac-option-modifier 'meta
       mac-command-modifier 'meta)
 
