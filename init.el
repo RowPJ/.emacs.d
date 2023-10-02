@@ -117,6 +117,7 @@
   ("s" avy-goto-char-2 "char2")
   ("C-a" avy-goto-line "line-start")
   ("C-e" avy-goto-end-of-line "line-end")
+  ("C-k" avy-kill-whole-line "kill-line")
   ("M-w" avy-kill-ring-save-region "copy-region")
   ("C-w" avy-kill-region "kill-region")
   ("q" nil "quit"))
