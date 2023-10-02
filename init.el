@@ -26,7 +26,7 @@
 (use-package swiper :ensure t)
 (use-package yasnippet :ensure t)
 (use-package anaconda-mode :ensure t)
-(use-package pyvenv :ensure t)
+;;(use-package pyvenv :ensure t)
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -147,15 +147,15 @@
 
 (setq-default tramp-default-remote-shell "/bin/bash")
 
-(use-package pyvenv
-  :ensure t
-  :config
-  (pyvenv-mode t)
+;; (use-package pyvenv
+;;   :ensure t
+;;   :config
+;;   (pyvenv-mode t)
 
-  ;; Set correct Python interpreter
-  (setq pyvenv-post-activate-hooks
-        (list (lambda ()
-                (setq python-shell-interpreter (concat pyvenv-virtual-env "bin/python")))))
-  (setq pyvenv-post-deactivate-hooks
-        (list (lambda ()
-                (setq python-shell-interpreter "python")))))
+;;   ;; Set correct Python interpreter
+;;   (setq pyvenv-post-activate-hooks
+;;         (list (lambda ()
+;;                 (setq python-shell-interpreter (concat pyvenv-virtual-env "bin/python")))))
+;;   (setq pyvenv-post-deactivate-hooks
+;;         (list (lambda ()
+;;                 (setq python-shell-interpreter "python")))))
