@@ -141,7 +141,8 @@
 ;; configure python development environment
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'anaconda-mode 'anaconda-eldoc-mode)
-(add-to-list 'company-backends 'company-anaconda)
+(eval-after-load "company"
+  '(add-to-list 'company-backends 'company-anaconda))
 
 (setq mac-option-modifier 'meta
       mac-command-modifier 'meta)
