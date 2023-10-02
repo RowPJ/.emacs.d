@@ -26,6 +26,7 @@
 (use-package swiper :ensure t)
 (use-package yasnippet :ensure t)
 (use-package anaconda-mode :ensure t)
+(use-package pyvenv :ensure t)
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
