@@ -24,7 +24,8 @@
 (use-package lsp-mode :ensure t)
 (use-package lsp-latex :ensure t)
 (use-package magit :ensure t)
-(use-package pdf-tools :ensure t)
+(if (not (eql system-type 'windows-nt))
+    (use-package pdf-tools :ensure t))
 (use-package resize-window :ensure t)
 (use-package slime :ensure t)
 (use-package slime-company :ensure t)
@@ -67,7 +68,8 @@
 
 (slime-setup '(slime-fancy slime-company))
 
-(pdf-tools-install)
+(if (not (eql system-type 'windows-nt))
+    (pdf-tools-install))
 
 (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
 
