@@ -130,6 +130,11 @@
 (global-set-key (kbd "C-c h") 'hydra/body)
 (global-set-key (kbd "C-c s") 'swiper)
 (global-set-key (kbd "C-c f") 'reveal-in-folder) ;open file in finder / file explorer etc.
+;;(global-set-key (kbd "M-\\") 'avy-goto-char) ;this binding is easy to type, could use it for something else later
+(global-set-key (kbd "M-u") 'upcase-dwim)
+(global-set-key (kbd "M-l") 'downcase-dwim)
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 (autoload 'idomenu "idomenu" nil t)
 
@@ -164,3 +169,6 @@
   (setq pyvenv-post-deactivate-hooks
         (list (lambda ()
                 (setq python-shell-interpreter "python")))))
+
+;; autocomplete setup (use everywhere)
+(global-company-mode)
