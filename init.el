@@ -24,7 +24,7 @@
 (use-package lsp-mode :ensure t)
 (use-package lsp-latex :ensure t)
 (use-package magit :ensure t)
-(if (not (eql system-type 'windows-nt))
+(if (eql system-type 'gnu/linux)
     (use-package pdf-tools :ensure t))
 (use-package resize-window :ensure t)
 (use-package slime :ensure t)
