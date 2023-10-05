@@ -172,3 +172,8 @@
 
 ;; autocomplete setup (use everywhere)
 (global-company-mode)
+
+;; TODO: make this functionality with keymaps / whatever the proper way is
+(add-hook 'flymake-mode-hook (lambda ()
+			       (local-set-key (kbd "C-c M-n") 'flymake-goto-next-error)
+			       (local-set-key (kbd "C-c M-p") 'flymake-goto-prev-error)))
