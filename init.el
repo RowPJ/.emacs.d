@@ -131,10 +131,17 @@
 (global-set-key (kbd "C-c s") 'swiper)
 (global-set-key (kbd "C-c f") 'reveal-in-folder) ;open file in finder / file explorer etc.
 ;;(global-set-key (kbd "M-\\") 'avy-goto-char) ;this binding is easy to type, could use it for something else later
-(global-set-key (kbd "M-u") 'upcase-dwim)
-(global-set-key (kbd "M-l") 'downcase-dwim)
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
+(progn
+  (global-set-key (kbd "M-u") 'upcase-dwim)
+  (global-set-key (kbd "M-l") 'downcase-dwim)
+  (put 'downcase-region 'disabled nil)
+  (put 'upcase-region 'disabled nil))
+(progn
+  (defun open-init-file ()
+    (interactive)
+    (or (switch-to-buffer-other-window "init.el")
+	(find-file-other-window "~/.emacs.d/init.el")))
+  (global-set-key (kbd "C-c i") 'open-init-file))
 
 (autoload 'idomenu "idomenu" nil t)
 
