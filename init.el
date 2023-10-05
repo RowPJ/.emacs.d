@@ -139,8 +139,7 @@
 (progn
   (defun open-init-file ()
     (interactive)
-    (or (switch-to-buffer-other-window "init.el")
-	(find-file-other-window "~/.emacs.d/init.el")))
+    (find-file-other-window "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c i") 'open-init-file))
 
 (autoload 'idomenu "idomenu" nil t)
