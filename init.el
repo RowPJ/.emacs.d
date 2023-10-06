@@ -10,31 +10,32 @@
 
 ;; ensure packages are installed
 (require 'use-package)
-(use-package reveal-in-folder :ensure t)
+(use-package anaconda-mode :ensure t)
 (use-package avy :ensure t)
 (use-package company :ensure t)
+(use-package company-anaconda :ensure t)
 (use-package company-auctex :ensure t)
 (use-package company-math :ensure t)
-(use-package company-anaconda :ensure t)
 (use-package hydra :ensure t)
 (use-package ivy :ensure t)
 (use-package ivy-hydra :ensure t)
 (use-package latex-extra :ensure t)
 (use-package latex-preview-pane :ensure t)
-(use-package lsp-mode :ensure t)
 (use-package lsp-latex :ensure t)
+(use-package lsp-mode :ensure t)
 (use-package magit :ensure t)
 (if (eql system-type 'gnu/linux)
     (use-package pdf-tools :ensure t))
+(use-package pyvenv :ensure t)
 (use-package resize-window :ensure t)
+(use-package reveal-in-folder :ensure t)
 (use-package slime :ensure t)
 (use-package slime-company :ensure t)
 (use-package solarized-theme :ensure t)
 (use-package ssh :ensure t)
 (use-package swiper :ensure t)
 (use-package yasnippet :ensure t)
-(use-package anaconda-mode :ensure t)
-(use-package pyvenv :ensure t)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
