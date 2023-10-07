@@ -64,7 +64,7 @@
       (cl-case system-type
 	    (gnu/linux "/usr/bin/sbcl")	;TODO: maybe check if this exists then use /opt/bin/sbcl if not?
 	    (darwin "/opt/homebrew/bin/sbcl")
-	    (windows-nt "C:/SBCL/bin/sbcl"))) ;TODO: update this when I confirm the path
+	    (windows-nt "C:/SBCL/sbcl.exe")))
 
 (add-hook 'after-init-hook 'global-company-mode)
 
