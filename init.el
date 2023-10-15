@@ -162,11 +162,6 @@
 (setq mac-option-modifier 'meta
       mac-command-modifier 'meta)
 
-;; since most displays are widescreen and most text documents scroll
-;; vertically, make splits prefer being horizontal over vertical.
-(setq split-width-threshold 0
-      split-height-threshold nil)
-
 (setq-default tramp-default-remote-shell "/bin/bash")
 
 (use-package pyvenv
