@@ -184,3 +184,4 @@
 (add-hook 'flymake-mode-hook (lambda ()
 			       (local-set-key (kbd "C-c M-n") 'flymake-goto-next-error)
 			       (local-set-key (kbd "C-c M-p") 'flymake-goto-prev-error)))
+(put 'set-goal-column 'disabled nil)
