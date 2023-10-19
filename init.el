@@ -185,3 +185,6 @@
 			       (local-set-key (kbd "C-c M-n") 'flymake-goto-next-error)
 			       (local-set-key (kbd "C-c M-p") 'flymake-goto-prev-error)))
 (put 'set-goal-column 'disabled nil)
+
+;; set number of commits shown in magit recent commits section
+(setq magit-log-section-commit-count 20) ;; default value is 10
