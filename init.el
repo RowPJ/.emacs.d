@@ -187,4 +187,4 @@
 (put 'set-goal-column 'disabled nil)
 
 ;; set number of commits shown in magit recent commits section
-(setq magit-log-section-commit-count 20) ;; default value is 10
+(setq magit-log-section-commit-count 40) ;; default value is 10
