@@ -30,13 +30,13 @@
 (use-package pyvenv :ensure t)
 (use-package resize-window :ensure t)
 (use-package reveal-in-folder :ensure t)
+(use-package sicp :ensure t)
 (use-package slime :ensure t)
 (use-package slime-company :ensure t)
 (use-package solarized-theme :ensure t)
 (use-package ssh :ensure t)
 (use-package swiper :ensure t)
 (use-package yasnippet :ensure t)
-(use-package sicp :ensure t)
 
 
 (custom-set-variables
