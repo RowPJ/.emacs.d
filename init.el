@@ -172,7 +172,8 @@
   ("ESC" nil "quit")
   ("q" nil "quit")
   ("RET" nil "quit")
-  ("C-<tab>" nil "quit"))
+  ("C-<tab>" nil "quit")
+  ("TAB" nil "quit"))
 
 
 ;; custom keybinds
