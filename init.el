@@ -186,6 +186,7 @@
     (find-file-other-window "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c i") 'open-init-file))
 (global-set-key (kbd "C-c b") 'tabs/body)  ;tab management
+(global-set-key (kbd "C-c C-b") 'tabs/body)
 
 (autoload 'idomenu "idomenu" nil t)
 
