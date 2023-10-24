@@ -237,7 +237,3 @@
 
 ;; set number of commits shown in magit recent commits section
 (setq magit-log-section-commit-count 40) ;; default value is 10
-
-;; enable magit-todos listing in magit status buffer
-(unless (eql system-type 'windows-nt)
-  (add-hook 'magit-mode-hook 'magit-todos-mode))
