@@ -137,12 +137,14 @@
   ("w" tab-close "close")
 
   ;; move tabs
-  ("f" (tab-move 1) "move-right")
-  ("b" (tab-move -1) "move-left")
+  ("F" (tab-move 1) "move-right")
+  ("B" (tab-move -1) "move-left")
   
   ;; switch tabs, relative and absolute
   ("TAB" tab-next "next")
   ("<backtab>" (tab-next -1) "previous")
+  ("f" tab-next "next")
+  ("b" (tab-next -1) "previous")
   ("1" (tab-select 1) "select-1")
   ("2" (tab-select 2))
   ("3" (tab-select 3))
@@ -167,6 +169,7 @@
   ("M-0" (tab-close-other 10))
   
   ;; exit without doing anything
+  ("ESC" nil "quit")
   ("q" nil "quit")
   ("RET" nil "quit"))
 
