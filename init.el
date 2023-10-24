@@ -134,14 +134,15 @@
 
   ;; close and open tabs
   ("n" tab-new "new")
-  ("M-w" tab-close "close")
+  ("w" tab-close "close")
 
   ;; move tabs
-  ("M-F" (tab-move 1) "move-right")
-  ("M-B" (tab-move -1) "move-left")
+  ("f" (tab-move 1) "move-right")
+  ("b" (tab-move -1) "move-left")
   
   ;; switch tabs, relative and absolute
   ("TAB" tab-next "next")
+  ("<backtab>" (tab-next -1) "previous")
   ("1" (tab-select 1) "select-1")
   ("2" (tab-select 2))
   ("3" (tab-select 3))
