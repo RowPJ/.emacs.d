@@ -166,7 +166,8 @@
   ("M-0" (tab-close-other 10))
   
   ;; exit without doing anything
-  ("q" nil "quit"))
+  ("q" nil "quit")
+  ("RET" nil "quit"))
 
 
 ;; custom keybinds
