@@ -143,8 +143,6 @@
   ("B" (tab-move -1) "move-left")
   
   ;; switch tabs, relative and absolute
-  ("TAB" tab-next "next")
-  ("<backtab>" (tab-next -1) "previous")
   ("f" tab-next "next")
   ("b" (tab-next -1) "previous")
   ("1" (tab-select 1) "select-1")
@@ -173,7 +171,8 @@
   ;; exit without doing anything
   ("ESC" nil "quit")
   ("q" nil "quit")
-  ("RET" nil "quit"))
+  ("RET" nil "quit")
+  ("C-<tab>" nil "quit"))
 
 
 ;; custom keybinds
@@ -191,8 +190,9 @@
     (interactive)
     (find-file-other-window "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c i") 'open-init-file))
-(global-set-key (kbd "C-c b") 'tabs/body)  ;tab management
-(global-set-key (kbd "C-c C-b") 'tabs/body)
+;; the default C-<tab> command is already tab-next,
+;; so we can replace it for convenient tab management.
+(global-set-key (kbd "C-<tab>") 'tabs/body)
 
 (autoload 'idomenu "idomenu" nil t)
 
