@@ -128,6 +128,46 @@
   ("C-w" avy-kill-region "kill-region")
   ("q" nil "quit"))
 
+;; tab controlling mode
+(defhydra tabs (:color amaranth)
+  "tabs"
+
+  ;; close and open tabs
+  ("n" tab-new "new")
+  ("M-w" tab-close "close")
+
+  ;; move tabs
+  ("M-F" (tab-move 1) "move-right")
+  ("M-B" (tab-move -1) "move-left")
+  
+  ;; switch tabs, relative and absolute
+  ("TAB" tab-next "next")
+  ("1" (tab-select 1) "select-1")
+  ("2" (tab-select 2))
+  ("3" (tab-select 3))
+  ("4" (tab-select 4))
+  ("5" (tab-select 5))
+  ("6" (tab-select 6))
+  ("7" (tab-select 7))
+  ("8" (tab-select 8))
+  ("9" (tab-select 9))
+  ("0" (tab-select 10))
+  
+  ;; switch tabs and close all others, absolute
+  ("M-1" (tab-close-other 1) "close-other-1")
+  ("M-2" (tab-close-other 2))
+  ("M-3" (tab-close-other 3))
+  ("M-4" (tab-close-other 4))
+  ("M-5" (tab-close-other 5))
+  ("M-6" (tab-close-other 6))
+  ("M-7" (tab-close-other 7))
+  ("M-8" (tab-close-other 8))
+  ("M-9" (tab-close-other 9))
+  ("M-0" (tab-close-other 10))
+  
+  ;; exit without doing anything
+  ("q" nil "quit"))
+
 
 ;; custom keybinds
 (global-set-key (kbd "C-c h") 'hydra/body)
@@ -144,6 +184,7 @@
     (interactive)
     (find-file-other-window "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c i") 'open-init-file))
+(global-set-key (kbd "C-c b") 'tabs/body)  ;tab management
 
 (autoload 'idomenu "idomenu" nil t)
 
