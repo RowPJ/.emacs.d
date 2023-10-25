@@ -108,22 +108,24 @@
 
 
 ;; placeholder root hydra entry point
-(defhydra hydra (:exit t)
+(defhydra hydra (:exit t :color amaranth)
   "hydra"
   ("i" hydra-ivy/body "ivy")
   ("a" hydra-avy/body "avy")
   ("w" hydra-windows/body "windows")
+  ("t" hydra-tabs/body "tabs")
   ("q" nil "quit"))
 
-(defhydra hydra-windows (:exit t)
+(defhydra hydra-windows (:exit t :color amaranth)
   "windows"
   ;; move a window to a new frame
   ;; in the same emacs process
   ("t" tear-off-window "tear-off")
   ("s" window-swap-states "swap")
-  ("r" resize-window "resize"))
+  ("r" resize-window "resize")
+  ("q" nil "quit"))
 
-(defhydra hydra-avy (:exit t)
+(defhydra hydra-avy (:exit t :color amaranth)
   "avy"
   ("a" avy-goto-char "char")
   ("s" avy-goto-char-2 "char2")
@@ -135,7 +137,7 @@
   ("q" nil "quit"))
 
 ;; tab controlling mode
-(defhydra tabs (:color amaranth)
+(defhydra hydra-tabs (:color amaranth)
   "tabs"
 
   ;; close and open tabs
@@ -205,11 +207,11 @@
   (global-set-key (kbd "C-c i") 'open-init-file))
 ;; the default C-<tab> command is already tab-next,
 ;; so we can replace it for convenient tab management.
-(global-set-key (kbd "C-<tab>") 'tabs/body)
+(global-set-key (kbd "C-<tab>") 'hydra-tabs/body)
 ;; C-<tab> doesn't work in terminal (at least on
 ;; linux), so add some alternatives
-(global-set-key (kbd "C-c TAB") 'tabs/body)
-(global-set-key (kbd "C-c t") 'tabs/body)
+(global-set-key (kbd "C-c TAB") 'hydra-tabs/body)
+(global-set-key (kbd "C-c t") 'hydra-tabs/body)
 
 (autoload 'idomenu "idomenu" nil t)
 
