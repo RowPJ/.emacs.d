@@ -241,3 +241,5 @@
 
 ;; set number of commits shown in magit recent commits section
 (setq magit-log-section-commit-count 40) ;; default value is 10
+
+;; TODO: add cross-platform aspell / flymake-spell configuration
