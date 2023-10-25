@@ -157,6 +157,8 @@
   ;; switch tabs, relative and absolute
   ("n" tab-next "next")
   ("p" (tab-next -1) "previous")
+  ("TAB" tab-next "next")
+  ("<backtab>" (tab-next -1) "previous")
   ("f" tab-next "next")
   ("b" (tab-next -1) "previous")
   ("1" (tab-select 1) "select-1")
@@ -186,8 +188,7 @@
   ("ESC" nil "quit")
   ("q" nil "quit")
   ("RET" nil "quit")
-  ("C-<tab>" nil "quit")
-  ("TAB" nil "quit"))
+  ("C-<tab>" nil "quit"))
 
 
 ;; custom keybinds
