@@ -117,6 +117,9 @@
 
 (defhydra hydra-windows (:exit t)
   "windows"
+  ;; move a window to a new frame
+  ;; in the same emacs process
+  ("t" tear-off-window "tear-off")
   ("s" window-swap-states "swap")
   ("r" resize-window "resize"))
 
@@ -144,6 +147,10 @@
   ("P" (tab-move -1) "move-left")
   ("F" (tab-move 1) "move-right")
   ("B" (tab-move -1) "move-left")
+
+  ;; move a window to a new tab
+  ;; and switch to it
+  ("t" tab-window-detach "tabify")
   
   ;; switch tabs, relative and absolute
   ("n" tab-next "next")
