@@ -200,8 +200,9 @@
 ;; so we can replace it for convenient tab management.
 (global-set-key (kbd "C-<tab>") 'tabs/body)
 ;; C-<tab> doesn't work in terminal (at least on
-;; linux), so add C-c TAB as an alternative
+;; linux), so add some alternatives
 (global-set-key (kbd "C-c TAB") 'tabs/body)
+(global-set-key (kbd "C-c t") 'tabs/body)
 
 (autoload 'idomenu "idomenu" nil t)
 
