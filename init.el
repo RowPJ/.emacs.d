@@ -268,6 +268,6 @@
 
 ;; configure python flymake integration (requires installing pyflakes
 ;; executable)
-(add-hook 'python-mode-hook 'flymake-mode)
 (setq flymake-python-pyflakes-executable "pyflakes3")
+(add-hook 'python-mode-hook 'flymake-mode)
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
