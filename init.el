@@ -162,11 +162,11 @@
   
   ;; switch tabs, relative and absolute
   ("n" tab-next "next")
-  ("p" (tab-next -1) "previous")
+  ("p" (tab-next -1) "prev")
   ("TAB" tab-next "next")
-  ("<backtab>" (tab-next -1) "previous")
+  ("<backtab>" (tab-next -1) "prev")
   ("f" tab-next "next")
-  ("b" (tab-next -1) "previous")
+  ("b" (tab-next -1) "prev")
   ("1" (tab-select 1) "select-1")
   ("2" (tab-select 2))
   ("3" (tab-select 3))
