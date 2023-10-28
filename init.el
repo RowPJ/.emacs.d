@@ -142,6 +142,10 @@
 (defhydra hydra-tabs (:color amaranth)
   "tabs"
 
+  ;; switch buffers
+  ("g" previous-buffer "prev-buffer")
+  ("h" next-buffer "next-buffer")
+
   ;; close and open tabs
   ("c" tab-new "create")
   ("w" tab-close "close")
