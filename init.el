@@ -145,6 +145,7 @@
   ;; switch buffers
   ("g" previous-buffer "prev-buffer")
   ("h" next-buffer "next-buffer")
+  ("k" (kill-buffer (current-buffer)) "kill-buffer")
 
   ;; close and open tabs
   ("c" tab-new "create")
