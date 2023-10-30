@@ -154,10 +154,10 @@
   ("C-f" windmove-right "move-right")
 
   ;; move windows
-  ("C-B" windmove-swap-states-left "swap-left")
-  ("C-N" windmove-swap-states-down "swap-down")
-  ("C-P" windmove-swap-states-up "swap-up")
-  ("C-F" windmove-swap-states-right "swap-right")
+  ("C-j" windmove-swap-states-left "swap-left")
+  ("C-k" windmove-swap-states-down "swap-down")
+  ("C-l" windmove-swap-states-up "swap-up")
+  ("C-;" windmove-swap-states-right "swap-right")
 
   ;; split window
   ("V" split-window-below "split-below")
