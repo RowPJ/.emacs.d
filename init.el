@@ -289,3 +289,5 @@
 
 (add-hook 'org-mode-hook 'display-line-numbers-mode)
 
+;; adjust default text size
+(set-face-attribute 'default nil :height 150)
