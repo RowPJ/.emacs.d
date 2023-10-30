@@ -210,6 +210,7 @@
 
 
 ;; custom keybinds
+(global-set-key (kbd "C-c l") 'hydra-layout/body)
 (global-set-key (kbd "C-c h") 'hydra/body)
 (global-set-key (kbd "C-c s") 'swiper)
 (global-set-key (kbd "C-c f") 'reveal-in-folder) ;open file in finder / file explorer etc.
@@ -224,15 +225,6 @@
     (interactive)
     (find-file-other-window "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c i") 'open-init-file))
-;; the default C-<tab> command is already tab-next,
-;; so we can replace it for convenient tab management.
-(global-set-key (kbd "C-<tab>") 'hydra-layout/body)
-;; C-<tab> doesn't work in terminal (at least on
-;; linux), so add some alternatives
-(global-set-key (kbd "C-c TAB") 'hydra-layout/body)
-(global-set-key (kbd "C-c t") 'hydra-layout/body)
-(global-set-key (kbd "C-c l") 'hydra-layout/body)
-(global-set-key (kbd "C-c C-l") 'hydra-layout/body)
 
 (autoload 'idomenu "idomenu" nil t)
 
