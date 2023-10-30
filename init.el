@@ -160,8 +160,8 @@
   ("F" windmove-swap-states-right "swap-right")
 
   ;; split window
-  ("V" split-window-below "split-below")
-  ("v" split-window-right "split-right")
+  ("V" (progn (split-window-below) (other-window 1)) "split-below")
+  ("v" (progn (split-window-right) (other-window 1)) "split-right")
 
   ;; close window
   ("0" delete-window "delete-window")
