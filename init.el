@@ -115,7 +115,7 @@
   ("i" hydra-ivy/body "ivy")
   ("a" hydra-avy/body "avy")
   ("w" hydra-windows/body "windows")
-  ("t" hydra-tabs/body "tabs")
+  ("l" hydra-layout/body "layout")
   ("q" nil "quit"))
 
 (defhydra hydra-windows (:exit t :color amaranth)
@@ -145,19 +145,19 @@
   ;; switch and close buffers
   ("g" previous-buffer "prev-buffer")
   ("h" next-buffer "next-buffer")
-  ("C-w" (kill-buffer (current-buffer)) "kill-buffer")
+  ("w" (kill-buffer (current-buffer)) "kill-buffer")
 
   ;; move between windows
-  ("C-b" windmove-left "move-left")
-  ("C-n" windmove-down "move-down")
-  ("C-p" windmove-up "move-up")
-  ("C-f" windmove-right "move-right")
+  ("b" windmove-left "move-left")
+  ("n" windmove-down "move-down")
+  ("p" windmove-up "move-up")
+  ("f" windmove-right "move-right")
 
   ;; move windows
-  ("C-j" windmove-swap-states-left "swap-left")
-  ("C-k" windmove-swap-states-down "swap-down")
-  ("C-l" windmove-swap-states-up "swap-up")
-  ("C-;" windmove-swap-states-right "swap-right")
+  ("B" windmove-swap-states-left "swap-left")
+  ("N" windmove-swap-states-down "swap-down")
+  ("P" windmove-swap-states-up "swap-up")
+  ("F" windmove-swap-states-right "swap-right")
 
   ;; split window
   ("V" split-window-below "split-below")
@@ -168,25 +168,19 @@
 
   ;; close and open tabs
   ("c" tab-new "create")
-  ("w" tab-close "close")
+  ("C-w" tab-close "close")
 
   ;; move tabs
-  ("N" (tab-move 1) "tab-right")
-  ("P" (tab-move -1) "tab-left")
-  ("F" (tab-move 1) "tab-right")
-  ("B" (tab-move -1) "tab-left")
+  ("C-<tab>" (tab-move 1) "tab-right")
+  ("C-S-<iso-lefttab>" (tab-move -1) "tab-left")
 
   ;; move a window to a new tab
   ;; and switch to it
   ("t" tab-window-detach "tabify")
   
   ;; switch tabs, relative and absolute
-  ("n" tab-next "next")
-  ("p" (tab-next -1) "prev")
   ("TAB" tab-next "next")
   ("<backtab>" (tab-next -1) "prev")
-  ("f" tab-next "next")
-  ("b" (tab-next -1) "prev")
   ("1" (tab-select 1) "select-1")
   ("2" (tab-select 2))
   ("3" (tab-select 3))
@@ -212,7 +206,7 @@
   ("ESC" nil "quit")
   ("q" nil "quit")
   ("RET" nil "quit")
-  ("C-<tab>" nil "quit"))
+  ("C-c" nil "quit"))
 
 
 ;; custom keybinds
@@ -237,6 +231,8 @@
 ;; linux), so add some alternatives
 (global-set-key (kbd "C-c TAB") 'hydra-layout/body)
 (global-set-key (kbd "C-c t") 'hydra-layout/body)
+(global-set-key (kbd "C-c l") 'hydra-layout/body)
+(global-set-key (kbd "C-c C-l") 'hydra-layout/body)
 
 (autoload 'idomenu "idomenu" nil t)
 
