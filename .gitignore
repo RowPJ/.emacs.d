@@ -7,3 +7,4 @@ anaconda-mode
 projects
 .DS_Store
 .lsp-session-*
+/server/
