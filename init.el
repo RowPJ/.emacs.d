@@ -153,6 +153,9 @@
   ("p" windmove-up "move-up")
   ("f" windmove-right "move-right")
 
+  ;; recursive edit
+  ("r" recursive-edit "recedit")
+
   ;; move windows
   ("B" windmove-swap-states-left "swap-left")
   ("N" windmove-swap-states-down "swap-down")
