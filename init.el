@@ -138,24 +138,43 @@
   ("C-w" avy-kill-region "kill-region")
   ("q" nil "quit"))
 
-;; tab controlling mode
-(defhydra hydra-tabs (:color amaranth)
-  "tabs"
+;; layout controlling mode
+(defhydra hydra-layout (:color amaranth)
+  "layout"
 
-  ;; switch buffers
+  ;; switch and close buffers
   ("g" previous-buffer "prev-buffer")
   ("h" next-buffer "next-buffer")
-  ("k" (kill-buffer (current-buffer)) "kill-buffer")
+  ("C-w" (kill-buffer (current-buffer)) "kill-buffer")
+
+  ;; move between windows
+  ("C-b" windmove-left "move-left")
+  ("C-n" windmove-down "move-down")
+  ("C-p" windmove-up "move-up")
+  ("C-f" windmove-right "move-right")
+
+  ;; move windows
+  ("C-B" windmove-swap-states-left "swap-left")
+  ("C-N" windmove-swap-states-down "swap-down")
+  ("C-P" windmove-swap-states-up "swap-up")
+  ("C-F" windmove-swap-states-right "swap-right")
+
+  ;; split window
+  ("V" split-window-below "split-below")
+  ("v" split-window-right "split-right")
+
+  ;; close window
+  ("0" delete-window "delete-window")
 
   ;; close and open tabs
   ("c" tab-new "create")
   ("w" tab-close "close")
 
   ;; move tabs
-  ("N" (tab-move 1) "move-right")
-  ("P" (tab-move -1) "move-left")
-  ("F" (tab-move 1) "move-right")
-  ("B" (tab-move -1) "move-left")
+  ("N" (tab-move 1) "tab-right")
+  ("P" (tab-move -1) "tab-left")
+  ("F" (tab-move 1) "tab-right")
+  ("B" (tab-move -1) "tab-left")
 
   ;; move a window to a new tab
   ;; and switch to it
@@ -177,7 +196,6 @@
   ("7" (tab-select 7))
   ("8" (tab-select 8))
   ("9" (tab-select 9))
-  ("0" (tab-select 10))
   
   ;; switch tabs and close all others, absolute
   ("!" (tab-close-other 1) "just-1")
@@ -189,7 +207,6 @@
   ("&" (tab-close-other 7) "just-7")
   ("*" (tab-close-other 8) "just-8")
   ("(" (tab-close-other 9) "just-9")
-  (")" (tab-close-other 10) "just-10")
   
   ;; exit without doing anything
   ("ESC" nil "quit")
@@ -215,11 +232,11 @@
   (global-set-key (kbd "C-c i") 'open-init-file))
 ;; the default C-<tab> command is already tab-next,
 ;; so we can replace it for convenient tab management.
-(global-set-key (kbd "C-<tab>") 'hydra-tabs/body)
+(global-set-key (kbd "C-<tab>") 'hydra-layout/body)
 ;; C-<tab> doesn't work in terminal (at least on
 ;; linux), so add some alternatives
-(global-set-key (kbd "C-c TAB") 'hydra-tabs/body)
-(global-set-key (kbd "C-c t") 'hydra-tabs/body)
+(global-set-key (kbd "C-c TAB") 'hydra-layout/body)
+(global-set-key (kbd "C-c t") 'hydra-layout/body)
 
 (autoload 'idomenu "idomenu" nil t)
 
