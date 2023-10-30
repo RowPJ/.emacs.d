@@ -145,7 +145,7 @@
   ;; switch and close buffers
   ("g" previous-buffer "prev-buffer")
   ("h" next-buffer "next-buffer")
-  ("w" (kill-buffer (current-buffer)) "kill-buffer")
+  ("W" (kill-buffer (current-buffer)) "kill-buffer")
 
   ;; move between windows
   ("b" windmove-left "move-left")
