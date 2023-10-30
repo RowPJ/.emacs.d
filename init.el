@@ -172,6 +172,7 @@
 
   ;; move tabs
   ("C-<tab>" (tab-move 1) "tab-right")
+  ("C-S-<tab>" (tab-move -1) "tab-left")
   ("C-S-<iso-lefttab>" (tab-move -1) "tab-left")
 
   ;; move a window to a new tab
