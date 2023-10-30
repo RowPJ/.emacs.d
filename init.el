@@ -179,8 +179,8 @@
   ("t" tab-window-detach "tabify")
   
   ;; switch tabs, relative and absolute
-  ("TAB" tab-next "next")
-  ("<backtab>" (tab-next -1) "prev")
+  ("TAB" tab-next "next-tab")
+  ("<backtab>" (tab-next -1) "prev-tab")
   ("1" (tab-select 1) "select-1")
   ("2" (tab-select 2))
   ("3" (tab-select 3))
