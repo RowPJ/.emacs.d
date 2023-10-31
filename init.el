@@ -232,6 +232,11 @@
     (find-file-other-window "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c i") 'open-init-file))
 
+;; set keyboard macro keys behaviour
+(global-set-key (kbd "C-M-s-q") 'hydra-avy/body)
+(global-set-key (kbd "C-M-s-w") 'hydra-windows/body)
+(global-set-key (kbd "C-M-s-e") 'hydra-layout/body)
+
 (autoload 'idomenu "idomenu" nil t)
 
 ;; add remote python lsp client for tramp
