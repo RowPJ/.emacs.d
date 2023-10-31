@@ -1,40 +1,28 @@
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
-;; and `package-pinned-packages`. Most users will not need or want to do this.
-;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(package-initialize)
+;; load files from custom config directory
+(add-to-list 'load-path "~/.emacs.d/config")
 
-;; avoid unset variable warning popup at startup
-(setq latex-extra-mode nil)
+;; load other config files
+(require 'package-config)
+(require 'common-lisp-config)
+(require 'tex-config)
+(require 'python-config)
+(require 'hydra-config)
 
 ;; ensure packages are installed
 (require 'use-package)
-(use-package anaconda-mode :ensure t)
 (use-package avy :ensure t)
 (use-package company :ensure t)
-(use-package company-anaconda :ensure t)
-(use-package company-auctex :ensure t)
 (use-package company-math :ensure t)
-(use-package hydra :ensure t)
 (use-package inkpot-theme :ensure t)
 (use-package ivy :ensure t)
-(use-package ivy-hydra :ensure t)
-(use-package latex-extra :ensure t)
-(use-package latex-preview-pane :ensure t)
-(use-package lsp-latex :ensure t)
 (use-package lsp-mode :ensure t)
 (use-package magit :ensure t)
 (when (eql system-type 'gnu/linux)
   (use-package magit-todos :ensure t)
   (use-package pdf-tools :ensure t))
-(use-package pyvenv :ensure t)
-(use-package flymake-python-pyflakes :ensure t)
 (use-package resize-window :ensure t)
 (use-package reveal-in-folder :ensure t)
 (use-package sicp :ensure t)
-(use-package slime :ensure t)
-(use-package slime-company :ensure t)
 (use-package solarized-theme :ensure t)
 (use-package ssh :ensure t)
 (use-package swiper :ensure t)
@@ -67,162 +55,18 @@
  )
 
 
-;; TODO: on gnu/linux, maybe check the path exists then use /opt/bin/sbcl if not?
-(setq inferior-lisp-program
-      (cl-case system-type
-	(gnu/linux "/usr/bin/sbcl")
-	(darwin "/opt/homebrew/bin/sbcl")
-	(windows-nt "C:/SBCL/sbcl.exe")))
-
+;; activate completion everywhere
 (add-hook 'after-init-hook 'global-company-mode)
 
-(slime-setup '(slime-fancy slime-company))
-
+;; don't run this init on windows due to errors
 (if (not (eql system-type 'windows-nt))
     (pdf-tools-install))
 
-(add-hook 'LaTeX-mode-hook #'latex-extra-mode)
-
-(latex-preview-pane-enable)
-
-(require 'lsp)
-(require 'lsp-latex)
-;; "texlab" executable must be located at a directory contained in `exec-path'.
-;; If you want to put "texlab" somewhere else,
-;; you can specify the path to "texlab" as follows:
-;; (setq lsp-latex-texlab-executable "/path/to/texlab")
-(with-eval-after-load "tex-mode"
-  (add-hook 'latex-extra-mode-hook 'lsp)
-  (add-hook 'latex-extra-mode-hook 'display-line-numbers-mode)
-  (add-hook 'tex-mode-hook 'lsp)
-  (add-hook 'latex-mode-hook 'lsp))
-
-;; For bibtex
-(with-eval-after-load "bibtex"
-  (add-hook 'bibtex-mode-hook 'lsp))
-
+;; show line numbers is programming modes
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
-(require 'company-auctex)
-(company-auctex-init)
-
-;; auctex variable configuration
-(setq-default TeX-master nil) ;makes auctex query for the main project .tex file of each .tex file opened
-
-
-;; placeholder root hydra entry point
-(defhydra hydra (:exit t :color amaranth)
-  "hydra"
-  ("i" hydra-ivy/body "ivy")
-  ("a" hydra-avy/body "avy")
-  ("w" hydra-windows/body "windows")
-  ("l" hydra-layout/body "layout")
-  ("q" nil "quit"))
-
-(defhydra hydra-windows (:exit t :color amaranth)
-  "windows"
-  ;; move a window to a new frame
-  ;; in the same emacs process
-  ("t" tear-off-window "tear-off")
-  ("s" window-swap-states "swap")
-  ("r" resize-window "resize")
-  ("q" nil "quit"))
-
-(defhydra hydra-avy (:exit t :color amaranth)
-  "avy"
-  ("a" avy-goto-char "char")
-  ("s" avy-goto-char-2 "char2")
-  ("C-a" avy-goto-line "line-start")
-  ("C-e" avy-goto-end-of-line "line-end")
-  ("C-k" avy-kill-whole-line "kill-line")
-  ("M-w" avy-kill-ring-save-region "copy-region")
-  ("C-w" avy-kill-region "kill-region")
-  ("q" nil "quit"))
-
-;; layout controlling mode
-(defhydra hydra-layout (:color amaranth)
-  "layout"
-
-  ;; switch and close buffers
-  ("g" previous-buffer "prev-buffer")
-  ("h" next-buffer "next-buffer")
-  ("W" (kill-buffer (current-buffer)) "kill-buffer")
-
-  ;; move between windows
-  ("b" windmove-left "move-left")
-  ("n" windmove-down "move-down")
-  ("p" windmove-up "move-up")
-  ("f" windmove-right "move-right")
-
-  ;; resize window
-  ("M-B" (shrink-window-horizontally 1) "")
-  ("M-b" (shrink-window-horizontally 4) "shrink-_")
-  ("M-P" (shrink-window 1) "")
-  ("M-p" (shrink-window 4) "shrink-|")
-  ("M-N" (shrink-window -1) "")
-  ("M-n" (shrink-window -4) "grow-|")
-  ("M-F" (shrink-window-horizontally -1) "")
-  ("M-f" (shrink-window-horizontally -4) "grow-_")
-
-  ;; recursive edit
-  ("r" recursive-edit "recedit")
-
-  ;; move windows
-  ("B" windmove-swap-states-left "swap-left")
-  ("N" windmove-swap-states-down "swap-down")
-  ("P" windmove-swap-states-up "swap-up")
-  ("F" windmove-swap-states-right "swap-right")
-
-  ;; split window
-  ("V" (progn (split-window-below) (other-window 1)) "split-below")
-  ("v" (progn (split-window-right) (other-window 1)) "split-right")
-
-  ;; close window
-  ("0" delete-window "delete-window")
-
-  ;; close and open tabs (like in browsers)
-  ("C-t" tab-new "create")
-  ("C-w" tab-close "close")
-
-  ;; move tabs
-  ("C-<tab>" (tab-move 1) "tab-right")
-  ("C-S-<tab>" (tab-move -1) "tab-left")
-  ("C-S-<iso-lefttab>" (tab-move -1) "tab-left")
-
-  ;; move a window to a new tab
-  ;; or frame and switch to it
-  ("t" tab-window-detach "tear-to-tab")
-  ("T" tear-off-window "tear-to-frame")
-  
-  ;; switch tabs, relative and absolute
-  ("TAB" tab-next "next-tab")
-  ("<backtab>" (tab-next -1) "prev-tab")
-  ("1" (tab-select 1) "select-1")
-  ("2" (tab-select 2))
-  ("3" (tab-select 3))
-  ("4" (tab-select 4))
-  ("5" (tab-select 5))
-  ("6" (tab-select 6))
-  ("7" (tab-select 7))
-  ("8" (tab-select 8))
-  ("9" (tab-select 9))
-  
-  ;; switch tabs and close all others, absolute
-  ("!" (tab-close-other 1) "just-1")
-  ("@" (tab-close-other 2) "just-2")
-  ("#" (tab-close-other 3) "just-3")
-  ("$" (tab-close-other 4) "just-4")
-  ("%" (tab-close-other 5) "just-5")
-  ("^" (tab-close-other 6) "just-6")
-  ("&" (tab-close-other 7) "just-7")
-  ("*" (tab-close-other 8) "just-8")
-  ("(" (tab-close-other 9) "just-9")
-  
-  ;; exit without doing anything
-  ("q" nil "quit")
-  ("RET" nil "quit")
-  ("C-c" nil "quit"))
-
+;; org-mode is not a programming mode but we still want line numbers.
+(add-hook 'org-mode-hook 'display-line-numbers-mode)
 
 ;; custom keybinds
 (global-set-key (kbd "C-c l") 'hydra-layout/body)
@@ -246,42 +90,15 @@
 (global-set-key (kbd "C-M-s-w") 'hydra-windows/body)
 (global-set-key (kbd "C-M-s-e") 'hydra-layout/body)
 
+;; don't know what this does
 (autoload 'idomenu "idomenu" nil t)
-
-;; add remote python lsp client for tramp
-;; (lsp-register-client
-;;  (make-lsp-client :new-connection (lsp-tramp-connection "pyls")
-;;                   :major-modes '(python-mode)
-;;                   :remote? t
-;;                   :server-id 'pyls-remote))
-
-;; configure python development environment
-(add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'anaconda-mode 'anaconda-eldoc-mode)
-(eval-after-load "company"
-  '(add-to-list 'company-backends 'company-anaconda))
 
 ;; on macos, make command and option keys meta key
 (setq mac-option-modifier 'meta
       mac-command-modifier 'meta)
 
+;; make remote connections use bash shell by default instead of sh
 (setq-default tramp-default-remote-shell "/bin/bash")
-
-(use-package pyvenv
-  :ensure t
-  :config
-  (pyvenv-mode t)
-
-  ;; Set correct Python interpreter
-  (setq pyvenv-post-activate-hooks
-        (list (lambda ()
-                (setq python-shell-interpreter (concat pyvenv-virtual-env "bin/python")))))
-  (setq pyvenv-post-deactivate-hooks
-        (list (lambda ()
-                (setq python-shell-interpreter "python")))))
-
-;; autocomplete setup (use everywhere)
-(global-company-mode)
 
 ;; TODO: make this functionality with keymaps / whatever the proper way is
 (add-hook 'flymake-mode-hook (lambda ()
@@ -297,17 +114,6 @@
 ;;       Maybe can add a hydra for running ispell checks and also
 ;;       selecing a region to run on.
 
-;; configure python flymake integration (requires installing pyflakes
-;; executable)
-
-(setq flymake-python-pyflakes-executable (cl-case system-type
-					   (gnu/linux "pyflakes3")
-					   (darwin "pyflakes")
-					   (windows-nt "pyflakes")))
-(add-hook 'python-mode-hook 'flymake-mode)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-
-(add-hook 'org-mode-hook 'display-line-numbers-mode)
 
 ;; adjust default text size
 (set-face-attribute 'default nil :height (cl-case system-type
