@@ -209,7 +209,6 @@
   ("(" (tab-close-other 9) "just-9")
   
   ;; exit without doing anything
-  ("ESC" nil "quit")
   ("q" nil "quit")
   ("RET" nil "quit")
   ("C-c" nil "quit"))
