@@ -8,3 +8,5 @@ projects
 .DS_Store
 .lsp-session-*
 /server/
+/*.rej
+/eln-cache/
