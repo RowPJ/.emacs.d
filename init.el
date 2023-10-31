@@ -180,8 +180,9 @@
   ("C-S-<iso-lefttab>" (tab-move -1) "tab-left")
 
   ;; move a window to a new tab
-  ;; and switch to it
-  ("t" tab-window-detach "tabify")
+  ;; or frame and switch to it
+  ("t" tab-window-detach "tear-to-tab")
+  ("T" tear-off-window "tear-to-frame")
   
   ;; switch tabs, relative and absolute
   ("TAB" tab-next "next-tab")
