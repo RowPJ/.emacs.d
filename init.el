@@ -180,8 +180,8 @@
   ;; close window
   ("0" delete-window "delete-window")
 
-  ;; close and open tabs
-  ("c" tab-new "create")
+  ;; close and open tabs (like in browsers)
+  ("C-t" tab-new "create")
   ("C-w" tab-close "close")
 
   ;; move tabs
