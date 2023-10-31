@@ -154,6 +154,16 @@
   ("p" windmove-up "move-up")
   ("f" windmove-right "move-right")
 
+  ;; resize window
+  ("M-B" (shrink-window-horizontally 1) "")
+  ("M-b" (shrink-window-horizontally 4) "shrink-_")
+  ("M-P" (shrink-window 1) "")
+  ("M-p" (shrink-window 4) "shrink-|")
+  ("M-N" (shrink-window -1) "")
+  ("M-n" (shrink-window -4) "grow-|")
+  ("M-F" (shrink-window-horizontally -1) "")
+  ("M-f" (shrink-window-horizontally -4) "grow-_")
+
   ;; recursive edit
   ("r" recursive-edit "recedit")
 
