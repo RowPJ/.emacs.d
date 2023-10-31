@@ -294,4 +294,7 @@
 (add-hook 'org-mode-hook 'display-line-numbers-mode)
 
 ;; adjust default text size
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height (cl-case system-type
+					   (gnu/linux 110)
+					   (darwin 150)
+					   (windows-nt 150)))
