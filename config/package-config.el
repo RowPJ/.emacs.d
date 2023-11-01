@@ -5,4 +5,12 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
+;; refresh the package list if there isn't already a cache
+;; existing. this should make new emacs installs able to download
+;; melpa packages at first run. package-refresh-contents can be
+;; called manually if use-package packages fail to install due
+;; to not being found in the package archive.
+(unless package-archive-contents
+  (package-refresh-contents))
+
 (provide 'package-config)
