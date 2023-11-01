@@ -1,6 +1,9 @@
 ;; load files from custom config directory
 (add-to-list 'load-path "~/.emacs.d/config")
 
+;; configure melpa package source
+(require 'package-config)
+
 ;; ensure packages are installed
 (require 'use-package)
 (use-package avy :ensure t)
@@ -24,7 +27,6 @@
 (use-package yasnippet :ensure t)
 
 ;; load other config files
-(require 'package-config)
 (require 'common-lisp-config)
 (require 'tex-config)
 (require 'python-config)
