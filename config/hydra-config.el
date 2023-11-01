@@ -7,6 +7,7 @@
   "hydra"
   ("i" hydra-ivy/body "ivy")
   ("a" hydra-avy/body "avy")
+  ("d" dap-hydra "dap")
   ("w" hydra-windows/body "windows")
   ("l" hydra-layout/body "layout")
   ("q" nil "quit"))

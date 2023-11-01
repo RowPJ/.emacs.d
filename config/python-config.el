@@ -2,6 +2,9 @@
 (use-package anaconda-mode :ensure t)
 (use-package company-anaconda :ensure t)
 
+(require 'dap-python)
+(setq dap-python-debugger 'debugpy)
+
 (use-package pyvenv
   :ensure t
   :config
