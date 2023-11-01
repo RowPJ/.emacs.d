@@ -42,5 +42,6 @@
 					   (windows-nt "pyflakes")))
 (add-hook 'python-mode-hook 'flymake-mode)
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+(add-hook 'python-mode-hook 'dap-mode)
 
 (provide 'python-config)
