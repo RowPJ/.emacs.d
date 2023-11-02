@@ -72,6 +72,7 @@
 
 ;; custom keybinds
 (global-set-key (kbd "C-c ;") 'dap-hydra)
+(global-set-key (kbd "C-M-;") 'comment-box)
 (global-set-key (kbd "C-c l") 'hydra-layout/body)
 (global-set-key (kbd "C-c h") 'hydra/body)
 (global-set-key (kbd "C-c s") 'swiper)
