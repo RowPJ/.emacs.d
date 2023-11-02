@@ -32,6 +32,10 @@
 (require 'python-config)
 (require 'hydra-config)
 
+;; load local configuration if it exists
+(if (file-exists-p "~/.emacs.d/config/machine-local-config.el")
+    (require 'machine-local-config))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

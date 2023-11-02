@@ -11,3 +11,4 @@
 /server/
 /*.rej
 /eln-cache/
+/config/machine-local-config.el
