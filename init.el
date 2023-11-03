@@ -23,6 +23,7 @@
 (use-package solarized-theme :ensure t)
 (use-package ssh :ensure t)
 (use-package swiper :ensure t)
+(use-package treemacs :ensure t)
 (use-package vscode-dark-plus-theme :ensure t)
 (use-package yasnippet :ensure t)
 
@@ -75,6 +76,7 @@
 (add-hook 'org-mode-hook 'display-line-numbers-mode)
 
 ;; custom keybinds
+(global-set-key (kbd "C-c d") 'treemacs)
 (global-set-key (kbd "C-c ;") 'dap-hydra)
 (global-set-key (kbd "C-M-;") 'comment-box)
 (global-set-key (kbd "C-c l") 'hydra-layout/body)
