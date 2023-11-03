@@ -133,3 +133,6 @@
 
 ;; hide tool bar by default since it's just mouse controls anyway
 (tool-bar-mode -1)
+
+;; also hide scroll bar by default
+(scroll-bar-mode -1)
