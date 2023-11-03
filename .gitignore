@@ -12,3 +12,6 @@
 /*.rej
 /eln-cache/
 /config/machine-local-config.el
+/%backup%~
+/.cache/
+/.dap-breakpoints
