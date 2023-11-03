@@ -130,3 +130,6 @@
 					   (gnu/linux 110)
 					   (darwin 150)
 					   (windows-nt 150)))
+
+;; hide tool bar by default since it's just mouse controls anyway
+(tool-bar-mode -1)
