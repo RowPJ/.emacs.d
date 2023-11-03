@@ -6,6 +6,7 @@
 (when (file-exists-p "~/.emacs.d/config/openai-key.el")
   (require 'openai-key))
 (when (boundp 'openai-key)
+  (setq llm-warn-on-nonfree nil)
   (use-package ellama
     :ensure t
     :init
