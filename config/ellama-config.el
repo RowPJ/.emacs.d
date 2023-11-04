@@ -14,6 +14,17 @@
 
 ;; only run this config if we can load the openai key
 (setq openai-default-chat-model "gpt-3.5-turbo")
+
+(defun ellama-choose-chat-model ()
+  "Sets ellama-provider to use a new openai chat model."
+  (interactive)
+  (let ((model (read-multiple-choice "Select openai chat model: " ;prompt
+				     '((?3 "gpt-3.5-turbo")
+				       (?4 "gpt-4"))))) ; choices
+    (setq ellama-provider
+	  (make-llm-openai :key openai-key
+			   :chat-model model))))
+
 (when (file-exists-p "~/.emacs.d/config/openai-key.el")
   (require 'openai-key))
 (if (boundp 'openai-key)
