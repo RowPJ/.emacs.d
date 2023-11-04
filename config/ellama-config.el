@@ -48,6 +48,20 @@ the ellama provider to tell the user how to accomplish this with standard emacs 
       ;; define ellama hydra
       (use-package hydra :ensure t)
       (defhydra hydra-ellama (:exit t)
+	("3" (progn
+	       (setq ellama-provider
+		     (make-llm-openai :key openai-key
+				      :chat-model "gpt-3.5-turbo"))
+	       (message "switched to gpt-3.5-turbo"))
+	 "gpt-3.5-turbo"
+	 :exit nil)
+	("4" (progn
+	       (setq ellama-provider
+		     (make-llm-openai :key openai-key
+				      :chat-model "gpt-4"))
+	       (message "switched to gpt-4"))
+	 "gpt-4"
+	 :exit nil)
 	("a" ellama-ask-about "ask-about")
 	("C" ellama-change "change-text")
 	("E" ellama-help-with-edit-op "help-with-edit-op")
