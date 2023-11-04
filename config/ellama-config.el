@@ -13,6 +13,7 @@
 (require 'use-package)
 
 ;; only run this config if we can load the openai key
+(setq openai-default-chat-model "gpt-3.5-turbo")
 (when (file-exists-p "~/.emacs.d/config/openai-key.el")
   (require 'openai-key))
 (if (boundp 'openai-key)
@@ -24,7 +25,7 @@
 	(require 'llm-openai)
 	(setq ellama-provider
 	      (make-llm-openai :key openai-key
-			       :chat-model "gpt-3.5-turbo")))
+			       :chat-model openai-default-chat-model)))
       ;; define ellama hydra
       (use-package hydra :ensure t)
       (defhydra hydra-ellama (:exit t)
