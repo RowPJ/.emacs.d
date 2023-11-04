@@ -1,7 +1,7 @@
 ;; This file configures Ellama for GPT API integration.
 
 ;; INSTRUCTIONS TO SETUP ELLAMA WITH YOUR OPENAI API KEY:
-;; 1. Create the file ~/config/openai-key.el
+;; 1. Create the file ~/.emacs.d/config/openai-key.el
 ;;    The path and name is important.
 ;; 2. Inside the file, put the below 2 lines of code. Make sure to
 ;;    replace the string contents with your actual openai api key.
