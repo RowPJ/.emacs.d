@@ -18,9 +18,9 @@
 (defun ellama-choose-chat-model ()
   "Sets ellama-provider to use a new openai chat model."
   (interactive)
-  (let ((model (read-multiple-choice "Select openai chat model: " ;prompt
-				     '((?3 "gpt-3.5-turbo")
-				       (?4 "gpt-4"))))) ; choices
+  (let ((model (cadr (read-multiple-choice "Select openai chat model: " ;prompt
+					   '((?3 "gpt-3.5-turbo")
+					     (?4 "gpt-4")))))) ; choices
     (setq ellama-provider
 	  (make-llm-openai :key openai-key
 			   :chat-model model))))
@@ -47,7 +47,8 @@
 	("r" ellama-code-review "code-review")
 	("b" ellama-make-concise "make-concise")
 	("t" ellama-translate "to-english")
-	("s" ellama-summarize "summarize"))
+	("s" ellama-summarize "summarize")
+	("M" ellama-choose-chat-model "choose model"))
       (global-set-key (kbd "C-c j") 'hydra-ellama/body))
   (global-set-key (kbd "C-c j") (lambda ()
 				  (interactive)
