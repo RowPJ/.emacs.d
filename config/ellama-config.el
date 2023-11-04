@@ -25,7 +25,7 @@
 	  (make-llm-openai :key openai-key
 			   :chat-model model))))
 
-(defun ellama-help-with-edit-op ()
+(defun ellama-help-with-emacs-task ()
   "Asks the user for an emacs task that they want to perform, and gets
 the ellama provider to tell the user how to accomplish this with standard emacs key bindings. If the functionality cannot be accomplished easily, it instead returns the definition of an elisp function that implements the requested task."
   (interactive)
@@ -64,7 +64,7 @@ the ellama provider to tell the user how to accomplish this with standard emacs 
 	 :exit nil)
 	("a" ellama-ask-about "ask-about")
 	("C" ellama-change "change-text")
-	("E" ellama-help-with-edit-op "help-with-edit-op")
+	("E" ellama-help-with-emacs-task "help-with-emacs-task")
 	("M-c" ellama-change "change-code")
 	("c" ellama-chat "chat")
 	("r" ellama-code-review "code-review")
