@@ -39,7 +39,7 @@
       (global-set-key (kbd "C-c j") 'hydra-ellama/body))
   (global-set-key (kbd "C-c j") (lambda ()
 				  (interactive)
-				  (error "You need to set an openai key. Check ~/config/ellama-config.el for instructions."))))
+				  (error "You need to set an openai key. Check ~/.emacs.d/config/ellama-config.el for instructions."))))
 
 
 (provide 'ellama-config)
