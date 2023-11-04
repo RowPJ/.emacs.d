@@ -116,4 +116,12 @@
   ("RET" nil "quit")
   ("C-c" nil "quit"))
 
+;; ispell / spelling check / spelling correction hydra
+(defhydra hydra-ispell (:color blue)
+  ("r" ispell-region "ispell region")
+  ("b" ispell-buffer "ispell buffer")
+  ("w" ispell-word "ispell word")
+  ("q" nil "Quit"))
+(global-set-key (kbd "C-c C-s") 'hydra-ispell/body)
+
 (provide 'hydra-config)

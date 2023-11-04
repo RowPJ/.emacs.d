@@ -121,10 +121,6 @@
 (setq magit-log-section-commit-count 40) ;; default value is 10
 
 ;; TODO: add cross-platform aspell / flymake-spell configuration
-;; TODO: add a key bindings for ispell-region and ispell-buffer.
-;;       Maybe can add a hydra for running ispell checks and also
-;;       selecing a region to run on.
-
 
 ;; adjust default text size
 (set-face-attribute 'default nil :height (cl-case system-type
