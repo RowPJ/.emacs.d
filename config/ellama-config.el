@@ -65,7 +65,7 @@ the ellama provider to tell the user how to accomplish this with standard emacs 
 	("a" ellama-ask-about "ask-about")
 	("C" ellama-change "change-text")
 	("E" ellama-help-with-emacs-task "help-with-emacs-task")
-	("M-c" ellama-change "change-code")
+	("M-c" ellama-change-code "change-code")
 	("c" ellama-chat "chat")
 	("r" ellama-code-review "code-review")
 	("b" ellama-make-concise "make-concise")
