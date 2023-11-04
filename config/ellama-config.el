@@ -30,7 +30,7 @@
 the ellama provider to tell the user how to accomplish this with standard emacs key bindings. If the functionality cannot be accomplished easily, it instead returns the definition of an elisp function that implements the requested task."
   (interactive)
   (let* ((task (read-string "Describe the emacs task that you wish to perform: "))
-	 (prompt (concat "Define an elisp function to perform the following task, unless it can be trivially performed with existing key bindings. Be brief by not explaining the code if it is simple. You may also define auxiliary functions if necessary. The defined function should be interactive.:\n\n" task)))
+	 (prompt (concat "Consider the following Emacs task. If it is simple to achieve with existing Emacs interfaces, explain very briefly how to do so. If it is complex, then define an elisp function command to perform it. Be very brief in your response. You may also define helper functions if necessary.:\n\n" task)))
     (ellama-instant prompt)))
 
 (when (file-exists-p "~/.emacs.d/config/openai-key.el")
