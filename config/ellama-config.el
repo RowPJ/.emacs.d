@@ -33,6 +33,15 @@ the ellama provider to tell the user how to accomplish this with standard emacs 
 	 (prompt (concat "Consider the following Emacs task. If it is simple to achieve with existing Emacs interfaces, explain very briefly how to do so. If it is complex, then define an elisp function command to perform it. Be very brief in your response. You may also define helper functions if necessary.:\n\n" task)))
     (ellama-instant prompt)))
 
+(defun ellama-expand-on-region ()
+  "Expands on the selected text. This typically becomes an explanation
+of the text."
+  (interactive)
+  
+  (let* ((text (buffer-substring-no-properties (region-beginning) (region-end)))
+	 (prompt (concat "Expand on the following text:\n\n" text)))
+    (ellama-instant prompt)))
+
 (when (file-exists-p "~/.emacs.d/config/openai-key.el")
   (require 'openai-key))
 (if (boundp 'openai-key)
@@ -65,6 +74,7 @@ the ellama provider to tell the user how to accomplish this with standard emacs 
 	("a" ellama-ask-about "ask-about")
 	("C" ellama-change "change-text")
 	("E" ellama-help-with-emacs-task "help-with-emacs-task")
+	("e" ellama-expand-on-region "expand-on-region")
 	("M-c" ellama-change-code "change-code")
 	("c" ellama-chat "chat")
 	("r" ellama-code-review "code-review")
