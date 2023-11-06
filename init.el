@@ -137,9 +137,9 @@
 
 ;; enable workspace management
 (eyebrowse-mode t)
-;; delete workspace
+;; close current workspace
 (global-set-key (kbd "C-M-0") 'eyebrowse-close-window-config)
-;; create workspace switching keybinds
+;; workspace switching / creating keybinds
 (global-set-key (kbd "C-M-1") 'eyebrowse-switch-to-window-config-1)
 (global-set-key (kbd "C-M-2") 'eyebrowse-switch-to-window-config-2)
 (global-set-key (kbd "C-M-3") 'eyebrowse-switch-to-window-config-3)
