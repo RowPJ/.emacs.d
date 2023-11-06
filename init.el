@@ -152,6 +152,8 @@
 ;; switch workspace relative to current workspace
 (global-set-key (kbd "M-[") 'eyebrowse-prev-window-config)
 (global-set-key (kbd "M-]") 'eyebrowse-next-window-config)
+;; make new workspace on first available number
+(global-set-key (kbd "C-M-]") 'eyebrowse-create-window-config)
 
 ;; TODO: eliminate either the eyebrowse config or the tabs config
 ;; since they serve a very similar purpose. note that eyebrowse can
