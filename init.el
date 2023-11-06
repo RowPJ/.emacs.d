@@ -10,6 +10,7 @@
 (use-package company :ensure t)
 (use-package company-math :ensure t)
 (use-package dap-mode :ensure t)
+(use-package eyebrowse :ensure t)
 (use-package inkpot-theme :ensure t)
 (use-package ivy :ensure t)
 (use-package lsp-mode :ensure t)
@@ -46,7 +47,7 @@
  '(inhibit-startup-screen t)
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
  '(package-selected-packages
-   '(ellama dap-mode flymake-python-pyflakes vscode-dark-plus-theme fantom-theme doom-themes kaolin-themes inkpot-theme magit-todos sicp company-anaconda anaconda-mode pyvenv lsp-python-ms reveal-in-folder ivy-hydra idomenu hydra avy swiper ssh company-auctex resize-window lsp-latex company-math latex-preview-pane latex-extra pdf-tools slime-company company ein solarized-theme magit slime))
+   '(eyebrowse projectile ellama dap-mode flymake-python-pyflakes vscode-dark-plus-theme fantom-theme doom-themes kaolin-themes inkpot-theme magit-todos sicp company-anaconda anaconda-mode pyvenv lsp-python-ms reveal-in-folder ivy-hydra idomenu hydra avy swiper ssh company-auctex resize-window lsp-latex company-math latex-preview-pane latex-extra pdf-tools slime-company company ein solarized-theme magit slime))
  '(pdf-view-incompatible-modes
    '(linum-mode linum-relative-mode helm-linum-relative-mode nlinum-mode nlinum-hl-mode nlinum-relative-mode yalinum-mode display-line-numbers-mode))
  '(set-mark-command-repeat-pop t)
@@ -133,3 +134,25 @@
 
 ;; also hide scroll bar by default
 (scroll-bar-mode -1)
+
+;; enable workspace management
+(eyebrowse-mode t)
+;; keybind for creating a new workspace
+(global-set-key (kbd "C-c w") 'eyebrowse-create-window-config)
+;; delete workspace
+(global-set-key (kbd "C-M-0") 'eyebrowse-close-window-config)
+;; create workspace switching keybinds
+(global-set-key (kbd "C-M-1") 'eyebrowse-switch-to-window-config-1)
+(global-set-key (kbd "C-M-2") 'eyebrowse-switch-to-window-config-2)
+(global-set-key (kbd "C-M-3") 'eyebrowse-switch-to-window-config-3)
+(global-set-key (kbd "C-M-4") 'eyebrowse-switch-to-window-config-4)
+(global-set-key (kbd "C-M-5") 'eyebrowse-switch-to-window-config-5)
+(global-set-key (kbd "C-M-6") 'eyebrowse-switch-to-window-config-6)
+(global-set-key (kbd "C-M-7") 'eyebrowse-switch-to-window-config-7)
+(global-set-key (kbd "C-M-8") 'eyebrowse-switch-to-window-config-8)
+(global-set-key (kbd "C-M-9") 'eyebrowse-switch-to-window-config-9)
+
+;; TODO: eliminate either the eyebrowse config or the tabs config
+;; since they serve a very similar purpose. note that eyebrowse can
+;; save configs between sessions so maybe move to it, although it is
+;; more work to redo existing configs for tabs.
