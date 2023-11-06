@@ -137,8 +137,6 @@
 
 ;; enable workspace management
 (eyebrowse-mode t)
-;; keybind for creating a new workspace
-(global-set-key (kbd "C-c w") 'eyebrowse-create-window-config)
 ;; delete workspace
 (global-set-key (kbd "C-M-0") 'eyebrowse-close-window-config)
 ;; create workspace switching keybinds
