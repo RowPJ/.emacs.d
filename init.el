@@ -149,6 +149,9 @@
 (global-set-key (kbd "C-M-7") 'eyebrowse-switch-to-window-config-7)
 (global-set-key (kbd "C-M-8") 'eyebrowse-switch-to-window-config-8)
 (global-set-key (kbd "C-M-9") 'eyebrowse-switch-to-window-config-9)
+;; switch workspace relative to current workspace
+(global-set-key (kbd "M-[") 'eyebrowse-prev-window-config)
+(global-set-key (kbd "M-]") 'eyebrowse-next-window-config)
 
 ;; TODO: eliminate either the eyebrowse config or the tabs config
 ;; since they serve a very similar purpose. note that eyebrowse can
