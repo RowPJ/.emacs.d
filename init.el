@@ -36,9 +36,6 @@
 (require 'hydra-config)
 (require 'ellama-config)
 
-;; load local configuration if it exists
-(if (file-exists-p "~/.emacs.d/config/machine-local-config.el")
-    (require 'machine-local-config))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -64,6 +61,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; load local configuration if it exists
+(if (file-exists-p "~/.emacs.d/config/machine-local-config.el")
+    (require 'machine-local-config))
 
 ;; activate completion everywhere
 (add-hook 'after-init-hook 'global-company-mode)
