@@ -159,3 +159,19 @@
 ;; since they serve a very similar purpose. note that eyebrowse can
 ;; save configs between sessions so maybe move to it, although it is
 ;; more work to redo existing configs for tabs.
+
+;; gpt-3.5-turbo-1106 generated function
+;; (defun fill-each-line-equally-region (start end)
+;;   "This elisp function takes a region as input, then calculates the
+;; average length of each line and sets the `fill-column` to that value
+;; before using `fill-region` to fill each line approximately equally."
+;;   (interactive "r")
+;;   (let ((fill-column (ceiling (apply #'+
+;; 				     (mapcar (lambda (line)
+;; 					       (- (line-end-position line)
+;; 						  (line-beginning-position line)))
+;; 					     (split-string (buffer-substring start end) "\n")))
+;; 			      (1+ (- (line-number-at-pos end -1)
+;; 				     (line-number-at-pos start -1))))))
+;;     (fill-region start end)))
+;; (global-set-key (kbd "M-Q") 'fill-each-line-equally-region)
