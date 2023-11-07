@@ -155,23 +155,38 @@
 ;; make new workspace on first available number
 (global-set-key (kbd "C-M-]") 'eyebrowse-create-window-config)
 
-;; TODO: eliminate either the eyebrowse config or the tabs config
-;; since they serve a very similar purpose. note that eyebrowse can
-;; save configs between sessions so maybe move to it, although it is
-;; more work to redo existing configs for tabs.
+;; TODO: eliminate either the eyebrowse config or the tabs
+;; config since they serve a very similar purpose. note that
+;; eyebrowse can save configs between sessions so maybe move
+;; to it, although it is more work to redo existing configs
+;; for tabs.
 
-;; gpt-3.5-turbo-1106 generated function
-;; (defun fill-each-line-equally-region (start end)
-;;   "This elisp function takes a region as input, then calculates the
-;; average length of each line and sets the `fill-column` to that value
-;; before using `fill-region` to fill each line approximately equally."
-;;   (interactive "r")
-;;   (let ((fill-column (ceiling (apply #'+
-;; 				     (mapcar (lambda (line)
-;; 					       (- (line-end-position line)
-;; 						  (line-beginning-position line)))
-;; 					     (split-string (buffer-substring start end) "\n")))
-;; 			      (1+ (- (line-number-at-pos end -1)
-;; 				     (line-number-at-pos start -1))))))
-;;     (fill-region start end)))
-;; (global-set-key (kbd "M-Q") 'fill-each-line-equally-region)
+;; gpt-4-1106-preview generated function
+(defun fill-each-line-equally-region (start end)
+  "Fill each line of the selected region to have approximately equal length."
+  (interactive "r")
+  (let ((line-count (count-lines start end))
+        (total-chars 0)
+        average-line-length
+        (old-fill-column fill-column))
+
+    ;; Calculate the total number of characters in the region
+    (save-excursion
+      (goto-char start)
+      (while (< (point) end)
+        (let ((line-end (line-end-position)))
+          (setq total-chars (+ total-chars (- line-end (point))))
+          (forward-line 1))))
+
+    ;; Calculate the average line length, considering the line count
+    (setq average-line-length (ceiling (/ (float total-chars) line-count)))
+
+    ;; Set `fill-column` to the average line length
+    (setq fill-column average-line-length)
+
+    ;; Fill the region
+    (fill-region start end)
+
+    ;; Restore the original `fill-column` value
+    (setq fill-column old-fill-column)))
+(global-set-key (kbd "M-Q") 'fill-each-line-equally-region)
