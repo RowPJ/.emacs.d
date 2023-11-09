@@ -7,6 +7,7 @@
 ;; ensure packages are installed
 (require 'use-package)
 (use-package avy :ensure t)
+(use-package ace-window :ensure t)
 (use-package company :ensure t)
 (use-package company-math :ensure t)
 (use-package dap-mode :ensure t)

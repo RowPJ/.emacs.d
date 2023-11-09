@@ -124,4 +124,14 @@
   ("q" nil "Quit"))
 (global-set-key (kbd "C-c C-s") 'hydra-ispell/body)
 
+;; numeric window selection for some commands
+(defhydra hydra-ace-window (:color teal :quit t)
+  ("1" ace-delete-other-windows "delete-other-windows")
+  ("0" ace-delete-window "delete-window")
+  ("o" ace-select-window "select-window")
+  ("s" ace-swap-window "swap-window")
+  ("q" nil "Quit"))
+(global-set-key (kbd "C-c a") 'hydra-ace-window/body)
+
+
 (provide 'hydra-config)
