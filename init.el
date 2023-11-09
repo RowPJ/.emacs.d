@@ -79,6 +79,7 @@
 (add-hook 'org-mode-hook 'display-line-numbers-mode)
 
 ;; custom keybinds
+(global-set-key (kbd "C-c r") 'recursive-edit)
 (global-set-key (kbd "C-c d") 'treemacs)
 (global-set-key (kbd "C-c ;") 'dap-hydra)
 (global-set-key (kbd "C-M-;") 'comment-box)
