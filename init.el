@@ -15,6 +15,7 @@
 (use-package ivy :ensure t)
 (use-package lsp-mode :ensure t)
 (use-package magit :ensure t)
+(use-package magit-lfs :ensure t :pin melpa)
 (when (eql system-type 'gnu/linux)
   (use-package magit-todos :ensure t)
   (use-package pdf-tools :ensure t))
@@ -47,7 +48,7 @@
  '(inhibit-startup-screen t)
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
  '(package-selected-packages
-   '(eyebrowse projectile ellama dap-mode flymake-python-pyflakes vscode-dark-plus-theme fantom-theme doom-themes kaolin-themes inkpot-theme magit-todos sicp company-anaconda anaconda-mode pyvenv lsp-python-ms reveal-in-folder ivy-hydra idomenu hydra avy swiper ssh company-auctex resize-window lsp-latex company-math latex-preview-pane latex-extra pdf-tools slime-company company ein solarized-theme magit slime))
+   '(magit-lfs eyebrowse projectile ellama dap-mode flymake-python-pyflakes vscode-dark-plus-theme fantom-theme doom-themes kaolin-themes inkpot-theme magit-todos sicp company-anaconda anaconda-mode pyvenv lsp-python-ms reveal-in-folder ivy-hydra idomenu hydra avy swiper ssh company-auctex resize-window lsp-latex company-math latex-preview-pane latex-extra pdf-tools slime-company company ein solarized-theme magit slime))
  '(pdf-view-incompatible-modes
    '(linum-mode linum-relative-mode helm-linum-relative-mode nlinum-mode nlinum-hl-mode nlinum-relative-mode yalinum-mode display-line-numbers-mode))
  '(set-mark-command-repeat-pop t)
