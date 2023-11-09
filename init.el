@@ -161,33 +161,3 @@
 ;; eyebrowse can save configs between sessions so maybe move
 ;; to it, although it is more work to redo existing configs
 ;; for tabs.
-
-;; gpt-4-1106-preview generated function
-(defun fill-each-line-equally-region (start end)
-  "Fill each line of the selected region to have approximately equal length."
-  (interactive "r")
-  (let ((line-count (count-lines start end))
-        (total-chars 0)
-        average-line-length
-        (old-fill-column fill-column))
-
-    ;; Calculate the total number of characters in the region
-    (save-excursion
-      (goto-char start)
-      (while (< (point) end)
-        (let ((line-end (line-end-position)))
-          (setq total-chars (+ total-chars (- line-end (point))))
-          (forward-line 1))))
-
-    ;; Calculate the average line length, considering the line count
-    (setq average-line-length (ceiling (/ (float total-chars) line-count)))
-
-    ;; Set `fill-column` to the average line length
-    (setq fill-column average-line-length)
-
-    ;; Fill the region
-    (fill-region start end)
-
-    ;; Restore the original `fill-column` value
-    (setq fill-column old-fill-column)))
-(global-set-key (kbd "M-Q") 'fill-each-line-equally-region)
