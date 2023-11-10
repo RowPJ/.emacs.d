@@ -34,6 +34,7 @@
 (require 'common-lisp-config)
 (require 'tex-config)
 (require 'python-config)
+(require 'julia-config)
 (require 'hydra-config)
 (require 'ellama-config)
 
