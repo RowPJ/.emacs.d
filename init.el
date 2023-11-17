@@ -164,3 +164,6 @@
 ;; eyebrowse can save configs between sessions so maybe move
 ;; to it, although it is more work to redo existing configs
 ;; for tabs.
+
+;; enable vertical lines to indicate indentation level in treemacs
+(treemacs-indent-guide-mode 1)
