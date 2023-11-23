@@ -37,6 +37,7 @@
 (require 'julia-config)
 (require 'hydra-config)
 (require 'ellama-config)
+(require 'amusements)
 
 
 (custom-set-variables
