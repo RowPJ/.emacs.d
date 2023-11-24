@@ -3,7 +3,8 @@
 (cl-case system-type
   ;; On linux / macos, use julia-snail since we can install
   ;; dependencies easily. On ubuntu 20.04, the dependency names are
-  ;; libvterm-bin and libtool-bin and they can be installed with apt.
+  ;; "libvterm-bin" and "libtool-bin" and they can be installed with apt.
+  ;; On manjaro, can install "libvterm" and "libtool" using pamac.
   ((gnu/linux darwin)
    (use-package julia-snail :ensure t)
    (add-hook 'julia-mode-hook 'julia-snail-mode))
