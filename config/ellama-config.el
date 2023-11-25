@@ -30,7 +30,7 @@
 the ellama provider to tell the user how to accomplish this with standard emacs key bindings. If the functionality cannot be accomplished easily, it instead returns the definition of an elisp function that implements the requested task."
   (interactive)
   (let* ((task (read-string "Describe the emacs task that you wish to perform: "))
-	 (prompt (concat "Consider the following Emacs task. If it is simple to achieve with existing Emacs interfaces, explain very briefly how to do so. If it is complex, then define an elisp function command to perform it. Be very brief in your response. You may also define helper functions if necessary.:\n\n" task)))
+	 (prompt (format "Provide guidance for completing the following task in Emacs, ideally using standard keybindings or features. If the task requires complex actions, suggest a new Emacs Lisp function definition or a reference to an existing Emacs package and how to use it. Task description: '%s'" task)))
     (ellama-instant prompt)))
 
 (defun ellama-expand-on-region ()
