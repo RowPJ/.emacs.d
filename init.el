@@ -37,6 +37,7 @@
 (require 'julia-config)
 (require 'hydra-config)
 (require 'ellama-config)
+(require 'org-config)
 (require 'amusements)
 
 
@@ -77,9 +78,6 @@
 
 ;; show line numbers is programming modes
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-
-;; org-mode is not a programming mode but we still want line numbers.
-(add-hook 'org-mode-hook 'display-line-numbers-mode)
 
 ;; custom keybinds
 (global-set-key (kbd "C-c r") 'recursive-edit)
