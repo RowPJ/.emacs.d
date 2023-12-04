@@ -39,6 +39,7 @@
 (require 'ellama-config)
 (require 'org-config)
 (require 'amusements)
+(require 'openai-dalle)
 
 
 (custom-set-variables
