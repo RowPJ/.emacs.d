@@ -20,6 +20,7 @@
 (when (eql system-type 'gnu/linux)
   (use-package magit-todos :ensure t)
   (use-package pdf-tools :ensure t))
+(use-package read-aloud :ensure t)	;need to install flite to use this
 (use-package resize-window :ensure t)
 (use-package reveal-in-folder :ensure t)
 (use-package sicp :ensure t)
@@ -53,7 +54,7 @@
  '(inhibit-startup-screen t)
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
  '(package-selected-packages
-   '(julia-repl magit-lfs eyebrowse projectile ellama dap-mode flymake-python-pyflakes vscode-dark-plus-theme fantom-theme doom-themes kaolin-themes inkpot-theme magit-todos sicp company-anaconda anaconda-mode pyvenv lsp-python-ms reveal-in-folder ivy-hydra idomenu hydra avy swiper ssh company-auctex resize-window lsp-latex company-math latex-preview-pane latex-extra pdf-tools slime-company company ein solarized-theme magit slime))
+   '(read-aloud julia-repl magit-lfs eyebrowse projectile ellama dap-mode flymake-python-pyflakes vscode-dark-plus-theme fantom-theme doom-themes kaolin-themes inkpot-theme magit-todos sicp company-anaconda anaconda-mode pyvenv lsp-python-ms reveal-in-folder ivy-hydra idomenu hydra avy swiper ssh company-auctex resize-window lsp-latex company-math latex-preview-pane latex-extra pdf-tools slime-company company ein solarized-theme magit slime))
  '(pdf-view-incompatible-modes
    '(linum-mode linum-relative-mode helm-linum-relative-mode nlinum-mode nlinum-hl-mode nlinum-relative-mode yalinum-mode display-line-numbers-mode))
  '(set-mark-command-repeat-pop t)
@@ -81,6 +82,7 @@
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; custom keybinds
+(global-set-key (kbd "C-R") 'read-aloud-this)
 (global-set-key (kbd "C-c r") 'recursive-edit)
 (global-set-key (kbd "C-c d") 'treemacs)
 (global-set-key (kbd "C-c ;") 'dap-hydra)
