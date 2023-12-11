@@ -1,6 +1,13 @@
 ;; load files from custom config directory
 (add-to-list 'load-path "~/.emacs.d/config")
 
+;; install use-package manually on older emacs versions
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+
 ;; configure melpa package source
 (require 'package-config)
 
