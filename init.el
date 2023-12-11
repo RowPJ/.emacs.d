@@ -170,3 +170,9 @@
 
 ;; enable vertical lines to indicate indentation level in treemacs
 (treemacs-indent-guide-mode 1)
+
+;; enable math symbol completion when typing \
+(eval-after-load "company"
+  '(add-to-list 'company-backends 'company-math-symbols-unicode))
+(eval-after-load "company"
+  '(add-to-list 'company-backends 'company-math-symbols-latex))
