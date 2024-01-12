@@ -39,7 +39,7 @@ the ellama provider to tell the user how to accomplish this with standard emacs 
   (interactive)
   (let* ((task (read-string "Describe the emacs task that you wish to perform: "))
 	 (prompt (format "Provide guidance for completing the following task in Emacs, ideally using standard keybindings or features. If the task requires complex actions, suggest a new Emacs Lisp function definition or a reference to an existing Emacs package and how to use it. Task description: '%s'" task)))
-    (ellama-instant prompt)))
+    (ellama-chat prompt)))
 
 (defun ellama-expand-on-region ()
   "Expands on the selected text. This typically becomes an explanation
@@ -48,7 +48,7 @@ of the text."
   
   (let* ((text (buffer-substring-no-properties (region-beginning) (region-end)))
 	 (prompt (concat "Expand on the following text:\n\n" text)))
-    (ellama-instant prompt)))
+    (ellama-chat prompt)))
 
 (defun ellama-debug ()
   (interactive)
