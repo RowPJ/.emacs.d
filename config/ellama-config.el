@@ -25,6 +25,14 @@
 	  (make-llm-openai :key openai-key
 			   :chat-model model))))
 
+;; TODO: in order to fix this, I need to make execution wait for the
+;; full response to be streamed before returning the buffer string.
+;; (defun ellama-query (prompt)
+;;   "Queries ellama and gets a reponse string to return immediately."
+;;   (with-temp-buffer 
+;;     (ellama-stream prompt)
+;;     (buffer-string)))
+
 (defun ellama-help-with-emacs-task ()
   "Asks the user for an emacs task that they want to perform, and gets
 the ellama provider to tell the user how to accomplish this with standard emacs key bindings. If the functionality cannot be accomplished easily, it instead returns the definition of an elisp function that implements the requested task."
@@ -41,6 +49,27 @@ of the text."
   (let* ((text (buffer-substring-no-properties (region-beginning) (region-end)))
 	 (prompt (concat "Expand on the following text:\n\n" text)))
     (ellama-instant prompt)))
+
+(defun ellama-debug ()
+  (interactive)
+  (let* ((text (buffer-substring-no-properties (region-beginning) (region-end)))
+	 (prompt (concat "Give me suggestions to help with debugging this code:\n\n") text))
+    (ellama-chat prompt)))
+
+;; TODO: in order to fix this, I need to fix ellama-query.
+;; (defun ellama-command ()
+;;   "Runs an emacs command from a natural language prompt."
+;;   (interactive)
+;;   (let* ((nl-command (read-string "Enter a natural language command: "))
+;; 	 (prompt (concat "Generate some Elisp code to perform the following task in Emacs. Only output the code without any explanations or formatting, as your response will be passed directly to the Elisp intepreter without any further processing.\nTask: " nl-command))
+;; 	 (response (ellama-query prompt))
+;; 	 ;; to get the code, delete the first and last lines of formatting
+;; 	 (code (let* ((lines (split-string response "\n" t))
+;; 		      (lines-without-first (cdr lines)) ; Remove the first line
+;; 		      (lines-without-first-and-last (butlast lines-without-first)))
+;; 		 (mapconcat 'identity lines-without-first-and-last "\n"))))
+;;     (if (y-or-n-p (concat "Execute reponse code: \"" code "\"?"))
+;; 	(eval (read-from-string code)))))
 
 (when (file-exists-p "~/.emacs.d/config/openai-key.el")
   (require 'openai-key))
@@ -78,6 +107,7 @@ of the text."
 	("M-c" ellama-change-code "change-code")
 	("c" ellama-chat "chat")
 	("d" ellama-define-word "define-word")
+	("D" ellama-debug "debug")
 	("r" ellama-code-review "code-review")
 	("b" ellama-make-concise "make-concise")
 	("t" ellama-translate "translate")
