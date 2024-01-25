@@ -89,6 +89,7 @@
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; custom keybinds
+(global-set-key (kbd "C-c a") 'avy-goto-char)
 (global-set-key (kbd "C-c R") 'read-aloud-this)
 (global-set-key (kbd "C-c r") 'recursive-edit)
 (global-set-key (kbd "C-c d") 'treemacs)

@@ -131,7 +131,5 @@
   ("o" ace-select-window "select-window")
   ("s" ace-swap-window "swap-window")
   ("q" nil "Quit"))
-(global-set-key (kbd "C-c a") 'hydra-ace-window/body)
-
 
 (provide 'hydra-config)
