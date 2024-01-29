@@ -13,14 +13,14 @@
 (require 'use-package)
 
 ;; only run this config if we can load the openai key
-(setq openai-default-chat-model "gpt-3.5-turbo-1106")
+(setq openai-default-chat-model "gpt-3.5-turbo")
 
 (defun ellama-choose-chat-model ()
   "Sets ellama-provider to use a new openai chat model."
   (interactive)
   (let ((model (cadr (read-multiple-choice "Select openai chat model: " ;prompt
-					   '((?3 "gpt-3.5-turbo-1106")
-					     (?4 "gpt-4-1106-preview")))))) ; choices
+					   '((?3 "gpt-3.5-turbo")
+					     (?4 "gpt-4-turbo-preview")))))) ; choices
     (setq ellama-provider
 	  (make-llm-openai :key openai-key
 			   :chat-model model))))
@@ -89,16 +89,16 @@ of the text."
 	("3" (progn
 	       (setq ellama-provider
 		     (make-llm-openai :key openai-key
-				      :chat-model "gpt-3.5-turbo-1106"))
-	       (message "switched to gpt-3.5-turbo-1106"))
-	 "gpt-3.5-turbo-1106"
+				      :chat-model "gpt-3.5-turbo"))
+	       (message "switched to gpt-3.5-turbo"))
+	 "gpt-3.5-turbo"
 	 :exit nil)
 	("4" (progn
 	       (setq ellama-provider
 		     (make-llm-openai :key openai-key
-				      :chat-model "gpt-4-1106-preview"))
-	       (message "switched to gpt-4-1106-preview"))
-	 "gpt-4-1106-preview"
+				      :chat-model "gpt-4-turbo-preview"))
+	       (message "switched to gpt-4-turbo-preview"))
+	 "gpt-4-turbo-preview"
 	 :exit nil)
 	("a" ellama-ask-about "ask-about")
 	("C" ellama-complete-code "complete-code")
