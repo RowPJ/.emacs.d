@@ -98,6 +98,7 @@
 (global-set-key (kbd "C-c l") 'hydra-layout/body)
 (global-set-key (kbd "C-c h") 'hydra/body)
 (global-set-key (kbd "C-c s") 'swiper)
+(global-set-key (kbd "C-c M-s") 'swiper-thing-at-point)
 (global-set-key (kbd "C-c f") 'reveal-in-folder) ;open file in finder / file explorer etc.
 ;;(global-set-key (kbd "M-\\") 'avy-goto-char) ;this binding is easy to type, could use it for something else later
 (progn
