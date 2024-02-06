@@ -149,7 +149,8 @@
 (tool-bar-mode -1)
 
 ;; also hide scroll bar by default
-(scroll-bar-mode -1)
+(if (display-graphic-p)
+    (scroll-bar-mode -1))
 
 ;; enable workspace management
 (eyebrowse-mode t)
