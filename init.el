@@ -181,6 +181,7 @@
 
 ;; enable vertical lines to indicate indentation level in treemacs
 (treemacs-indent-guide-mode 1)
+(treemacs-git-commit-diff-mode 1)
 
 ;; enable math symbol completion when typing \
 (eval-after-load "company"
