@@ -133,6 +133,9 @@
 ;; bind goto commands for the next and previous error in flymake mode
 (define-key flymake-mode-map (kbd "C-c M-n") 'flymake-goto-next-error)
 (define-key flymake-mode-map (kbd "C-c M-p") 'flymake-goto-prev-error)
+
+
+;; allow using set-goal-column command
 (put 'set-goal-column 'disabled nil)
 
 ;; set number of commits shown in magit recent commits section
