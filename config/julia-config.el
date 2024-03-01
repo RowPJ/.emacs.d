@@ -6,6 +6,8 @@
   ;; "libvterm-bin" and "libtool-bin" and they can be installed with apt.
   ;; On manjaro, can install "libvterm" and "libtool" using pamac.
   ((gnu/linux darwin)
+   ;; vterm is a julia-snail dependency
+   (use-package vterm :ensure t)
    (use-package julia-snail :ensure t)
    (add-hook 'julia-mode-hook 'julia-snail-mode))
   ;; on windows / unknown, fall back to a combination of other modes
