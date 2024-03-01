@@ -130,10 +130,9 @@
 ;; make remote connections use bash shell by default instead of sh
 (setq-default tramp-default-remote-shell "/bin/bash")
 
-;; TODO: make this functionality with keymaps / whatever the proper way is
-(add-hook 'flymake-mode-hook (lambda ()
-			       (local-set-key (kbd "C-c M-n") 'flymake-goto-next-error)
-			       (local-set-key (kbd "C-c M-p") 'flymake-goto-prev-error)))
+;; bind goto commands for the next and previous error in flymake mode
+(define-key flymake-mode-map (kbd "C-c M-n") 'flymake-goto-next-error)
+(define-key flymake-mode-map (kbd "C-c M-p") 'flymake-goto-prev-error)
 (put 'set-goal-column 'disabled nil)
 
 ;; set number of commits shown in magit recent commits section
