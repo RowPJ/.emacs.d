@@ -36,72 +36,8 @@
 (defhydra hydra-layout (:color amaranth)
   "layout"
 
-  ;; switch and close buffers
-  ("g" previous-buffer "prev-buffer")
-  ("h" next-buffer "next-buffer")
-  ("W" (kill-buffer (current-buffer)) "kill-buffer")
-
-  ;; move between windows
-  ("b" windmove-left "move-left")
-  ("n" windmove-down "move-down")
-  ("p" windmove-up "move-up")
-  ("f" windmove-right "move-right")
-
-  ;; resize window
-  ("M-B" (shrink-window-horizontally 1) "")
-  ("M-b" (shrink-window-horizontally 4) "shrink-_")
-  ("M-P" (shrink-window 1) "")
-  ("M-p" (shrink-window 4) "shrink-|")
-  ("M-N" (shrink-window -1) "")
-  ("M-n" (shrink-window -4) "grow-|")
-  ("M-F" (shrink-window-horizontally -1) "")
-  ("M-f" (shrink-window-horizontally -4) "grow-_")
-
-  ;; recursive edit
-  ("r" recursive-edit "recedit")
-
-  ;; move windows
-  ("B" windmove-swap-states-left "swap-left")
-  ("N" windmove-swap-states-down "swap-down")
-  ("P" windmove-swap-states-up "swap-up")
-  ("F" windmove-swap-states-right "swap-right")
-
-  ;; split window
-  ("V" (progn (split-window-below) (other-window 1)) "split-below")
-  ("v" (progn (split-window-right) (other-window 1)) "split-right")
-
-  ;; close window
-  ("0" delete-window "delete-window")
-
-  ;; close and open tabs (like in browsers)
-  ("C-t" tab-new "create")
-  ("C-w" tab-close "close")
-
-  ;; move tabs
-  ("C-<tab>" (tab-move 1) "tab-right")
-  ("C-S-<tab>" (tab-move -1) "tab-left")
-  ("C-S-<iso-lefttab>" (tab-move -1) "tab-left")
-
-  ;; move a window to a new tab
-  ;; or frame and switch to it
-  ("t" tab-window-detach "tear-to-tab")
-  ("T" tear-off-window "tear-to-frame")
-  
-  ;; switch tabs, relative and absolute
-  ("TAB" tab-next "next-tab")
-  ("<backtab>" (tab-next -1) "prev-tab")
-  ("1" (tab-select 1) "select-1")
-  ("2" (tab-select 2))
-  ("3" (tab-select 3))
-  ("4" (tab-select 4))
-  ("5" (tab-select 5))
-  ("6" (tab-select 6))
-  ("7" (tab-select 7))
-  ("8" (tab-select 8))
-  ("9" (tab-select 9))
-  
-  ;; switch tabs and close all others, absolute
-  ("!" (tab-close-other 1) "just-1")
+  ;; no-column variants of below commands
+  ;; kill other tabs by number
   ("@" (tab-close-other 2) "just-2")
   ("#" (tab-close-other 3) "just-3")
   ("$" (tab-close-other 4) "just-4")
@@ -110,7 +46,78 @@
   ("&" (tab-close-other 7) "just-7")
   ("*" (tab-close-other 8) "just-8")
   ("(" (tab-close-other 9) "just-9")
+  ;; switch to a tab by number
+  ("2" (tab-select 2))
+  ("3" (tab-select 3))
+  ("4" (tab-select 4))
+  ("5" (tab-select 5))
+  ("6" (tab-select 6))
+  ("7" (tab-select 7))
+  ("8" (tab-select 8))
+  ("9" (tab-select 9))
+  ;; resize window a small amount
+  ("M-B" (shrink-window-horizontally 1) "")
+  ("M-P" (shrink-window 1) "")
+  ("M-N" (shrink-window -1) "")
+  ("M-F" (shrink-window-horizontally -1) "")
+
+  ;;;; movement commands
+  ;; move between windows
+  ("b" windmove-left "move-left" :column "Move")
+  ("n" windmove-down "move-down")
+  ("p" windmove-up "move-up")
+  ("f" windmove-right "move-right")
+  ;; switch tabs, relative
+  ("TAB" tab-next "next-tab")
+  ("<backtab>" (tab-next -1) "prev-tab")
+  ("1" (tab-select 1) "select-1")
+
+
+  ;;;; swap commands
+  ;; move/swap windows
+  ("B" windmove-swap-states-left "swap-left" :column "Swap")
+  ("N" windmove-swap-states-down "swap-down")
+  ("P" windmove-swap-states-up "swap-up")
+  ("F" windmove-swap-states-right "swap-right")
+  ;; move tabs
+  ("C-<tab>" (tab-move 1) "tab-right")
+  ("C-S-<tab>" (tab-move -1) "tab-left")
+  ("C-S-<iso-lefttab>" (tab-move -1) "tab-left")
+  ;; change buffer
+  ("g" previous-buffer "prev-buffer")
+  ("h" next-buffer "next-buffer")
+
+
+  ;;;; creation commands
+  ;; open new tab
+  ("C-t" tab-new "tab" :column "Create")
+  ;; split window
+  ("V" (progn (split-window-below) (other-window 1)) "split-below")
+  ("v" (progn (split-window-right) (other-window 1)) "split-right")
+  ;; move a window to a new tab
+  ;; or frame and switch to it
+  ("t" tab-window-detach "tear-to-tab")
+  ("T" tear-off-window "tear-to-frame")
+
   
+  ;; resize window
+  ("M-b" (shrink-window-horizontally 4) "shrink-_" :column "Resize")
+  ("M-p" (shrink-window 4) "shrink-|")
+  ("M-n" (shrink-window -4) "grow-|")
+  ("M-f" (shrink-window-horizontally -4) "grow-_")
+
+
+  ;;;; close commands
+  ;; close window
+  ("0" delete-window "delete-window" :column "Close")
+  ;; close and open tabs (like in browsers)
+  ("C-w" tab-close "close")
+  ;; switch tabs and close all others, absolute
+  ("!" (tab-close-other 1) "just-1")
+  ;; close buffer
+  ("W" (kill-buffer (current-buffer)) "kill-buffer")
+
+  ("r" recursive-edit "recedit" :column "Other")
   ;; exit without doing anything
   ("q" nil "quit")
   ("RET" nil "quit")
