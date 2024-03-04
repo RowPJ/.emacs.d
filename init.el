@@ -31,6 +31,7 @@
 (use-package read-aloud :ensure t)	;need to install flite to use this
 (use-package resize-window :ensure t)
 (use-package reveal-in-folder :ensure t)
+(use-package rg :ensure t)
 (use-package sicp :ensure t)
 (use-package solarized-theme :ensure t)
 (use-package ssh :ensure t)
@@ -63,7 +64,7 @@
  '(inhibit-startup-screen t)
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
  '(package-selected-packages
-   '(csv-mode treemacs-magit read-aloud julia-repl magit-lfs eyebrowse projectile ellama dap-mode flymake-python-pyflakes vscode-dark-plus-theme fantom-theme doom-themes kaolin-themes inkpot-theme magit-todos sicp company-anaconda anaconda-mode pyvenv lsp-python-ms reveal-in-folder ivy-hydra idomenu hydra avy swiper ssh company-auctex resize-window lsp-latex company-math latex-preview-pane latex-extra pdf-tools slime-company company ein solarized-theme magit slime))
+   '(rg csv-mode treemacs-magit read-aloud julia-repl magit-lfs eyebrowse projectile ellama dap-mode flymake-python-pyflakes vscode-dark-plus-theme fantom-theme doom-themes kaolin-themes inkpot-theme magit-todos sicp company-anaconda anaconda-mode pyvenv lsp-python-ms reveal-in-folder ivy-hydra idomenu hydra avy swiper ssh company-auctex resize-window lsp-latex company-math latex-preview-pane latex-extra pdf-tools slime-company company ein solarized-theme magit slime))
  '(pdf-view-incompatible-modes
    '(linum-mode linum-relative-mode helm-linum-relative-mode nlinum-mode nlinum-hl-mode nlinum-relative-mode yalinum-mode display-line-numbers-mode))
  '(set-mark-command-repeat-pop t)
