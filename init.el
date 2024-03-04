@@ -92,6 +92,8 @@
 
 ;; custom keybinds
 (global-set-key (kbd "C-c a") 'avy-goto-char)
+(setq avy-keys '(?a ?s ?d ?f ?j ?k ?l ?\;))
+
 (global-set-key (kbd "C-c R") 'read-aloud-this)
 (global-set-key (kbd "C-c r") 'recursive-edit)
 (global-set-key (kbd "C-c d") 'treemacs)
