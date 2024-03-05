@@ -4,6 +4,7 @@
 (require 'use-package)
 (use-package company-auctex :ensure t)
 (use-package latex-extra :ensure t)
+(use-package latex-math-preview :ensure t)
 (use-package latex-preview-pane :ensure t)
 (use-package lsp-latex :ensure t)
 
