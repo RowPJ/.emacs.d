@@ -127,6 +127,9 @@
 ;; don't know what this does
 (autoload 'idomenu "idomenu" nil t)
 
+;; enable ido mode for interactive find-file and switch-buffer
+(ido-mode 1)
+
 ;; on macos, make command and option keys meta key
 (setq mac-option-modifier 'meta
       mac-command-modifier 'meta)
