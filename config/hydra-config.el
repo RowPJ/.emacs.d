@@ -129,7 +129,6 @@
   ("b" ispell-buffer "ispell buffer")
   ("w" ispell-word "ispell word")
   ("q" nil "Quit"))
-(global-set-key (kbd "C-c C-s") 'hydra-ispell/body)
 
 ;; numeric window selection for some commands
 (defhydra hydra-ace-window (:color teal :quit t)

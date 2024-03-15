@@ -101,6 +101,7 @@
 (global-set-key (kbd "C-c ;") 'dap-hydra)
 (global-set-key (kbd "C-M-;") 'comment-box)
 (global-set-key (kbd "C-c l") 'hydra-layout/body)
+(global-set-key (kbd "C-c C-s") 'hydra-ispell/body)
 (global-set-key (kbd "C-c h") 'hydra/body)
 (global-set-key (kbd "C-c s") 'swiper)
 (global-set-key (kbd "C-c S") 'rg-menu)
