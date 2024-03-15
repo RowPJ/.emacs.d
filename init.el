@@ -198,3 +198,10 @@
   '(add-to-list 'company-backends 'company-math-symbols-unicode))
 (eval-after-load "company"
   '(add-to-list 'company-backends 'company-math-symbols-latex))
+
+
+;; set gc cons threshold to 100MB (by lsp mode configuration recommendation)
+(setq gc-cons-threshold 100000000)
+
+;; set amount of data emacs reads from processes at a time to 1MB (also lsp mode configuration recommendation)
+(setq read-process-output-max (* 1024 1024))
