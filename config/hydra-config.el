@@ -94,6 +94,8 @@
   ;; split window
   ("V" (progn (split-window-below) (other-window 1)) "split-below")
   ("v" (progn (split-window-right) (other-window 1)) "split-right")
+  ("M-V" (progn (split-root-window-below) (other-window 1)) "split-root-below")
+  ("M-v" (progn (split-root-window-right) (other-window 1)) "split-root-right")
   ;; move a window to a new tab
   ;; or frame and switch to it
   ("t" tab-window-detach "tear-to-tab")
