@@ -38,14 +38,14 @@
 
   ;; no-column variants of below commands
   ;; kill other tabs by number
-  ("@" (tab-close-other 2) "just-2")
-  ("#" (tab-close-other 3) "just-3")
-  ("$" (tab-close-other 4) "just-4")
-  ("%" (tab-close-other 5) "just-5")
-  ("^" (tab-close-other 6) "just-6")
-  ("&" (tab-close-other 7) "just-7")
-  ("*" (tab-close-other 8) "just-8")
-  ("(" (tab-close-other 9) "just-9")
+  ("@" (tab-close-other 2))
+  ("#" (tab-close-other 3))
+  ("$" (tab-close-other 4))
+  ("%" (tab-close-other 5))
+  ("^" (tab-close-other 6))
+  ("&" (tab-close-other 7))
+  ("*" (tab-close-other 8))
+  ("(" (tab-close-other 9))
   ;; switch to a tab by number
   ("2" (tab-select 2))
   ("3" (tab-select 3))
@@ -70,7 +70,7 @@
   ;; switch tabs, relative
   ("TAB" tab-next "next-tab")
   ("<backtab>" (tab-next -1) "prev-tab")
-  ("1" (tab-select 1) "select-1")
+  ("1" (tab-select 1) "select-tab-1")
 
 
   ;;;; swap commands
@@ -113,13 +113,13 @@
   ;; close window
   ("0" delete-window "delete-window" :column "Close")
   ;; close and open tabs (like in browsers)
-  ("C-w" tab-close "close")
+  ("C-w" tab-close "close-tab")
   ;; switch tabs and close all others, absolute
-  ("!" (tab-close-other 1) "just-1")
+  ("!" (tab-close-other 1) "just-tab-1")
   ;; close buffer
   ("W" (kill-buffer (current-buffer)) "kill-buffer")
 
-  ("r" recursive-edit "recedit" :column "Other")
+  ("r" recursive-edit "recursive-edit" :column "Other")
   ;; exit without doing anything
   ("q" nil "quit")
   ("RET" nil "quit")
