@@ -120,6 +120,9 @@
     (find-file-other-window "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c i") 'open-init-file))
 
+;; add binding for making whitespace visible
+(global-set-key (kbd "C-c w") 'whitespace-mode)
+
 ;; set keyboard macro keys behaviour
 (global-set-key (kbd "C-M-s-q") 'hydra-avy/body)
 (global-set-key (kbd "C-M-s-w") 'hydra-windows/body)
