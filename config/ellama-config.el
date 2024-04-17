@@ -20,7 +20,7 @@
   (interactive)
   (let ((model (cadr (read-multiple-choice "Select openai chat model: " ;prompt
 					   '((?3 "gpt-3.5-turbo")
-					     (?4 "gpt-4-turbo-preview")))))) ; choices
+					     (?4 "gpt-4-turbo")))))) ; choices
     (setq ellama-provider
 	  (make-llm-openai :key openai-key
 			   :chat-model model))))
@@ -96,9 +96,9 @@ of the text."
 	("4" (progn
 	       (setq ellama-provider
 		     (make-llm-openai :key openai-key
-				      :chat-model "gpt-4-turbo-preview"))
-	       (message "switched to gpt-4-turbo-preview"))
-	 "gpt-4-turbo-preview"
+				      :chat-model "gpt-4-turbo"))
+	       (message "switched to gpt-4-turbo"))
+	 "gpt-4-turbo"
 	 :exit nil)
 	("a" ellama-ask-about "ask-about")
 	("C" ellama-complete-code "complete-code")
