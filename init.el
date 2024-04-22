@@ -142,6 +142,9 @@
 ;; make remote connections use bash shell by default instead of sh
 (setq-default tramp-default-remote-shell "/bin/bash")
 
+;; disable tabs for indentation; always use spaces
+(setq-default indent-tabs-mode nil)
+
 ;; bind goto commands for the next and previous error in flymake mode
 (define-key flymake-mode-map (kbd "C-c M-n") 'flymake-goto-next-error)
 (define-key flymake-mode-map (kbd "C-c M-p") 'flymake-goto-prev-error)
