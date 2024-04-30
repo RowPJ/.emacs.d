@@ -70,6 +70,17 @@
    '(pyvenv-auto python-black python-isort flycheck flymake-aspell dockerfile-mode latex-math-preview rg csv-mode treemacs-magit read-aloud julia-repl magit-lfs eyebrowse projectile ellama dap-mode vscode-dark-plus-theme fantom-theme doom-themes kaolin-themes inkpot-theme magit-todos sicp company-anaconda anaconda-mode pyvenv lsp-python-ms reveal-in-folder ivy-hydra idomenu hydra avy swiper ssh company-auctex resize-window lsp-latex company-math latex-preview-pane latex-extra pdf-tools slime-company company ein solarized-theme magit slime))
  '(pdf-view-incompatible-modes
    '(linum-mode linum-relative-mode helm-linum-relative-mode nlinum-mode nlinum-hl-mode nlinum-relative-mode yalinum-mode display-line-numbers-mode))
+ '(safe-local-variable-values
+   '((eval let
+           ((project-root
+             (locate-dominating-file default-directory ".dir-locals.el")))
+           (pyvenv-activate
+            (concat project-root ".python/venv")))
+     (eval let
+           ((project-root
+             (locate-dominating-file default-directory ".dir-locals.el")))
+           (setenv "PYTHONPATH"
+                   (concat project-root "src:" project-root "src/qclib")))))
  '(set-mark-command-repeat-pop t)
  '(tramp-remote-path
    '(tramp-default-remote-path tramp-own-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin")))
