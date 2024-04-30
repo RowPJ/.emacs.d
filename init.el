@@ -147,8 +147,17 @@
 (setq-default indent-tabs-mode nil)
 
 ;; bind goto commands for the next and previous error in flymake mode
-(define-key flymake-mode-map (kbd "C-c M-n") 'flymake-goto-next-error)
-(define-key flymake-mode-map (kbd "C-c M-p") 'flymake-goto-prev-error)
+(defhydra flymake-goto-continue ()
+  ("M-n" flymake-goto-next-error "flymake-goto-next-error")
+  ("M-p" flymake-goto-prev-error "flymake-goto-prev-error"))
+(define-key flymake-mode-map (kbd "C-c M-n") (lambda ()
+                                               (interactive)
+                                               (flymake-goto-next-error)
+                                               (flymake-goto-continue/body)))
+(define-key flymake-mode-map (kbd "C-c M-p") (lambda ()
+                                               (interactive)
+                                               (flymake-goto-prev-error)
+                                               (flymake-goto-continue/body)))
 
 ;; enable flymake aspell checker in text buffers
 (add-hook 'text-mode-hook #'flymake-aspell-setup)
