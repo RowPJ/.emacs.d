@@ -158,6 +158,18 @@
                                                (interactive)
                                                (flymake-goto-prev-error)
                                                (flymake-goto-continue/body)))
+;; same for flycheck mode
+(defhydra flycheck-goto-continue ()
+  ("M-n" flycheck-next-error "flycheck-next-error")
+  ("M-p" flycheck-previous-error "flycheck-previous-error"))
+(define-key flycheck-mode-map (kbd "C-c M-n") (lambda ()
+                                                (interactive)
+                                                (flycheck-next-error)
+                                                (flycheck-goto-continue/body)))
+(define-key flycheck-mode-map (kbd "C-c M-p") (lambda ()
+                                                (interactive)
+                                                (flycheck-previous-error)
+                                                (flycheck-goto-continue/body)))
 
 ;; enable flymake aspell checker in text buffers
 (add-hook 'text-mode-hook #'flymake-aspell-setup)
