@@ -7,7 +7,6 @@
 (require 'use-package)
 (use-package anaconda-mode :ensure t)
 (use-package company-anaconda :ensure t)
-(use-package flycheck-pyflakes :ensure t)
 (use-package python-black :ensure t)
 (use-package python-isort :ensure t)
 
@@ -40,7 +39,10 @@
 (eval-after-load "company"
   '(add-to-list 'company-backends 'company-anaconda))
 
-(require 'flycheck-pyflakes)
+
+;; start flycheck with python mode. this will default to using mypy
+;; and flake8 checkers; we also disable pylint
+(setq-default flycheck-disabled-checkers (cons 'python-pylint flycheck-disabled-checkers))
 (add-hook 'python-mode-hook 'flycheck-mode)
 
 (add-hook 'python-mode-hook 'dap-mode)
