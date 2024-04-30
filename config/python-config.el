@@ -26,6 +26,10 @@
         (list (lambda ()
                 (setq python-shell-interpreter "python")))))
 
+(use-package pyvenv-auto
+  :ensure t
+  :hook ((python-mode . pyvenv-auto-run)))
+
 ;; add remote python lsp client for tramp
 ;; (lsp-register-client
 ;;  (make-lsp-client :new-connection (lsp-tramp-connection "pyls")
