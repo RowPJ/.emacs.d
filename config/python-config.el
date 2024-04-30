@@ -2,6 +2,8 @@
 (use-package anaconda-mode :ensure t)
 (use-package company-anaconda :ensure t)
 (use-package flycheck-pyflakes :ensure t)
+(use-package python-black :ensure t)
+(use-package python-isort :ensure t)
 
 (require 'dap-python)
 (setq dap-python-debugger 'debugpy)
@@ -36,5 +38,14 @@
 (add-hook 'python-mode-hook 'flycheck-mode)
 
 (add-hook 'python-mode-hook 'dap-mode)
+
+;; run python black on save (reformats code according to standards)
+(require 'python-black)
+(add-hook 'python-mode-hook 'python-black-on-save-mode)
+
+;; run isort on save. we add this after the black hook so that it runs
+;; first.
+(require 'python-isort)
+(add-hook 'python-mode-hook 'python-isort-on-save-mode)
 
 (provide 'python-config)
