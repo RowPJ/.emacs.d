@@ -1,3 +1,9 @@
+;; requirements:
+;; Need to install pyflakes, black, and isort executables on your
+;; machine.
+;; On linux, you can do "sudo apt install pyflakes3 python3-pyflakes
+;; python3-flake8 black isort"
+
 (require 'use-package)
 (use-package anaconda-mode :ensure t)
 (use-package company-anaconda :ensure t)
