@@ -181,8 +181,6 @@
 ;; set number of commits shown in magit recent commits section
 (setq magit-log-section-commit-count 40) ;; default value is 10
 
-;; TODO: add cross-platform aspell / flymake-spell configuration
-
 ;; adjust default text size
 (set-face-attribute 'default nil :height (cl-case system-type
 					   (gnu/linux 110)
