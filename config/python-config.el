@@ -1,6 +1,7 @@
 (require 'use-package)
 (use-package anaconda-mode :ensure t)
 (use-package company-anaconda :ensure t)
+(use-package flycheck-pyflakes :ensure t)
 
 (require 'dap-python)
 (setq dap-python-debugger 'debugpy)
@@ -18,8 +19,6 @@
         (list (lambda ()
                 (setq python-shell-interpreter "python")))))
 
-(use-package flymake-python-pyflakes :ensure t)
-
 ;; add remote python lsp client for tramp
 ;; (lsp-register-client
 ;;  (make-lsp-client :new-connection (lsp-tramp-connection "pyls")
@@ -33,15 +32,9 @@
 (eval-after-load "company"
   '(add-to-list 'company-backends 'company-anaconda))
 
-;; configure python flymake integration (requires installing pyflakes
-;; executable)
+(require 'flycheck-pyflakes)
+(add-hook 'python-mode-hook 'flycheck-mode)
 
-(setq flymake-python-pyflakes-executable (cl-case system-type
-					   (gnu/linux "pyflakes3")
-					   (darwin "pyflakes")
-					   (windows-nt "pyflakes")))
-(add-hook 'python-mode-hook 'flymake-mode)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 (add-hook 'python-mode-hook 'dap-mode)
 
 (provide 'python-config)
