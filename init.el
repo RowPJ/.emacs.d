@@ -105,6 +105,9 @@
 ;; show line numbers is programming modes
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+;; show column number in mode line
+(column-number-mode 1)
+
 ;; custom keybinds
 (global-set-key (kbd "C-c a") 'avy-goto-char)
 (setq avy-keys '(?a ?s ?d ?f ?j ?k ?l ?\;))
