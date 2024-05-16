@@ -60,4 +60,12 @@
 (require 'python-isort)
 (add-hook 'python-mode-hook 'python-isort-on-save-mode)
 
+;; indent / de-indent hydra
+(defhydra python-indent-shift ()
+  ("<" python-indent-shift-left "indent-shift-left")
+  (">" python-indent-shift-right "indent-shift-right"))
+(define-key flycheck-mode-map (kbd "C-c <tab>") (lambda ()
+                                                  (interactive)
+                                                  (python-indent-shift/body)))
+
 (provide 'python-config)
