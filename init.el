@@ -71,7 +71,8 @@
  '(pdf-view-incompatible-modes
    '(linum-mode linum-relative-mode helm-linum-relative-mode nlinum-mode nlinum-hl-mode nlinum-relative-mode yalinum-mode display-line-numbers-mode))
  '(safe-local-variable-values
-   '((eval progn
+   '((encoding . utf-8)
+     (eval progn
            (remove-hook 'python-mode-hook 'python-black-on-save-mode)
            (remove-hook 'python-mode-hook 'python-isort-on-save-mode))
      (eval let
