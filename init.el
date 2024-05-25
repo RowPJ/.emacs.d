@@ -40,6 +40,7 @@
 (use-package ssh :ensure t)
 (use-package swiper :ensure t)
 (use-package treemacs :ensure t)
+(use-package treemacs-tab-bar :ensure t)
 (use-package treemacs-magit :ensure t)
 (use-package vscode-dark-plus-theme :ensure t)
 (use-package yasnippet :ensure t)
