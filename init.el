@@ -52,6 +52,7 @@
 (require 'tex-config)
 (require 'python-config)
 (require 'julia-config)
+(require 'c-cpp-config)
 (require 'hydra-config)
 (require 'ellama-config)
 (require 'org-config)
