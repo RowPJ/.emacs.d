@@ -27,7 +27,13 @@
 (use-package flycheck :ensure t)
 (use-package inkpot-theme :ensure t)
 (use-package ivy :ensure t)
-(use-package lsp-mode :ensure t)
+(use-package lsp-mode
+  :commands lsp
+  :ensure t
+  :init (setq lsp-keymap-prefix "C-c C-l")
+  :config
+  (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
+  (require 'lsp-clients))
 (use-package magit :ensure t)
 (use-package magit-lfs :ensure t :pin melpa)
 (when (eql system-type 'gnu/linux)
