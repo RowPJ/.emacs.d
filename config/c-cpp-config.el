@@ -1,4 +1,5 @@
 (use-package lsp-mode :ensure t)
+(use-package cmake-mode :ensure t)
 
 (require 'dap-cpptools)
 
