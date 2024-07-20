@@ -64,6 +64,7 @@
 (require 'org-config)
 (require 'amusements)
 (require 'openai-dalle)
+(require 'godot-config)
 
 
 (custom-set-variables
