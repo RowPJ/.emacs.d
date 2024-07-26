@@ -13,13 +13,13 @@
 (require 'use-package)
 
 ;; only run this config if we can load the openai key
-(setq openai-default-chat-model "gpt-3.5-turbo")
+(setq openai-default-chat-model "gpt-4o-mini")
 
 (defun ellama-choose-chat-model ()
   "Sets ellama-provider to use a new openai chat model."
   (interactive)
   (let ((model (cadr (read-multiple-choice "Select openai chat model: " ;prompt
-					   '((?3 "gpt-3.5-turbo")
+					   '((?3 "gpt-4o-mini")
 					     (?4 "gpt-4o")))))) ; choices
     (setq ellama-provider
 	  (make-llm-openai :key openai-key
@@ -89,9 +89,9 @@ of the text."
 	("3" (progn
 	       (setq ellama-provider
 		     (make-llm-openai :key openai-key
-				      :chat-model "gpt-3.5-turbo"))
-	       (message "switched to gpt-3.5-turbo"))
-	 "gpt-3.5-turbo"
+				      :chat-model "gpt-4o-mini"))
+	       (message "switched to gpt-4o-mini"))
+	 "gpt-4o-mini"
 	 :exit nil)
 	("4" (progn
 	       (setq ellama-provider
