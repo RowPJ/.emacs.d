@@ -149,6 +149,7 @@
   (put 'upcase-region 'disabled nil))
 (progn
   (defun open-init-file ()
+    "Opens ~/.emacs.d/init.el Emacs config file."
     (interactive)
     (find-file-other-window "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c i") 'open-init-file))
