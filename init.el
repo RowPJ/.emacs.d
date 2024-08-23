@@ -83,7 +83,16 @@
  '(pdf-view-incompatible-modes
    '(linum-mode linum-relative-mode helm-linum-relative-mode nlinum-mode nlinum-hl-mode nlinum-relative-mode yalinum-mode display-line-numbers-mode))
  '(safe-local-variable-values
-   '((encoding . utf-8)
+   '((eval let
+           ((project-root
+             (locate-dominating-file default-directory ".dir-locals.el")))
+           (setenv "PYTHONPATH"
+                   (concat project-root "src:" project-root "src/qclib"))
+           (setenv "MYPYPATH"
+                   (concat project-root "src:" project-root "src/qclib"))
+           (pyvenv-activate
+            (concat project-root ".python/venv")))
+     (encoding . utf-8)
      (eval progn
            (remove-hook 'python-mode-hook 'python-black-on-save-mode)
            (remove-hook 'python-mode-hook 'python-isort-on-save-mode))
