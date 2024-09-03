@@ -125,7 +125,7 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; don't run this init on windows due to errors
-(if (not (eql system-type 'windows-nt))
+(if (eql system-type 'gnu/linux)
     (pdf-tools-install))
 
 ;; show line numbers is programming modes
