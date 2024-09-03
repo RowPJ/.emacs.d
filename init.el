@@ -277,3 +277,6 @@
 
 ;; set amount of data emacs reads from processes at a time to 1MB (also lsp mode configuration recommendation)
 (setq read-process-output-max (* 1024 1024))
+
+;; lookup help for symbol at point in cmake buffers
+(define-key cmake-mode-map (kbd "M-?") 'cmake-help)
