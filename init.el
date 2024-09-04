@@ -15,6 +15,10 @@
 
 ;; ensure packages are installed
 (require 'use-package)
+(use-package exec-path-from-shell :ensure t
+  :config (when (memq window-system '(mac ns))
+            (setq exec-path-from-shell-variables '("JAVA_HOME" "GOPATH" "GOROOT" "GOBIN"))
+            (exec-path-from-shell-initialize)))
 (use-package avy :ensure t)
 (use-package ace-window :ensure t)
 (use-package csv-mode :ensure t)

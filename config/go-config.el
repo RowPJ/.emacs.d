@@ -1,5 +1,12 @@
 (require 'use-package)
 
+;; (setenv "GOPATH" (concat (getenv "HOME") "/go"))
+;; (setenv "GOROOT" "/usr/local/go")
+;; (setenv "GOBIN" (concat (getenv "GOPATH") "/bin"))
+;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOPATH")))
+;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOROOT") "/bin"))
+;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin"))
+
 (use-package lsp-mode :ensure t)
 (use-package go-mode :ensure t)
 
