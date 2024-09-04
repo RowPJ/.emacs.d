@@ -1,5 +1,6 @@
 (use-package lsp-mode :ensure t)
 (use-package cmake-mode :ensure t)
+(use-package flycheck-clang-analyzer :ensure t)
 
 (require 'dap-cpptools)
 
@@ -21,6 +22,10 @@
 (with-eval-after-load "cc-mode"
   (define-key c-mode-map (kbd "M-r") 'lsp-find-references)
   (define-key c++-mode-map (kbd "M-r") 'lsp-find-references))
+
+(with-eval-after-load 'flycheck
+   (require 'flycheck-clang-analyzer)
+   (flycheck-clang-analyzer-setup))
 
 
 (provide 'c-cpp-config)
