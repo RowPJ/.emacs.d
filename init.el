@@ -38,6 +38,9 @@
   :config
   (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
   (require 'lsp-clients))
+;; enable lsp as a backend for flycheck
+(require 'lsp-diagnostics)
+(lsp-diagnostics-flycheck-enable)
 (use-package magit :ensure t)
 (use-package magit-lfs :ensure t :pin melpa)
 (when (eql system-type 'gnu/linux)
