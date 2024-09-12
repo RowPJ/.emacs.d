@@ -20,7 +20,7 @@
   (interactive)
   (let ((model (cadr (read-multiple-choice "Select openai chat model: " ;prompt
 					   '((?3 "gpt-4o-mini")
-					     (?4 "gpt-4o")))))) ; choices
+					     (?4 "gpt-4o-2024-08-06")))))) ; choices
     (setq ellama-provider
 	  (make-llm-openai :key openai-key
 			   :chat-model model))))
