@@ -35,9 +35,7 @@
   :commands lsp
   :ensure t
   :init (setq lsp-keymap-prefix "C-c C-l")
-  :config
-  (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
-  (require 'lsp-clients))
+  :config (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map))
 ;; enable lsp as a backend for flycheck
 (require 'lsp-diagnostics)
 (lsp-diagnostics-flycheck-enable)
