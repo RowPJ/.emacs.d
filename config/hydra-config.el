@@ -103,10 +103,10 @@
 
   
   ;; resize window
-  ("M-b" (shrink-window-horizontally 4) "shrink-_" :column "Resize")
-  ("M-p" (shrink-window 4) "shrink-|")
-  ("M-n" (shrink-window -4) "grow-|")
-  ("M-f" (shrink-window-horizontally -4) "grow-_")
+  ("M-b" (shrink-window-horizontally 10) "shrink-_" :column "Resize")
+  ("M-p" (shrink-window 10) "shrink-|")
+  ("M-n" (shrink-window -10) "grow-|")
+  ("M-f" (shrink-window-horizontally -10) "grow-_")
 
 
   ;;;; close commands
