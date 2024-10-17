@@ -62,6 +62,7 @@
 
 ;; load other config files
 (require 'common-lisp-config)
+(require 'clojure-config)
 (require 'tex-config)
 (require 'python-config)
 (require 'julia-config)
