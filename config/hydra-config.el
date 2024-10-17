@@ -107,7 +107,7 @@
   ("M-p" (shrink-window 10) "shrink-|")
   ("M-n" (shrink-window -10) "grow-|")
   ("M-f" (shrink-window-horizontally -10) "grow-_")
-  ("=" (balance-windows) "balance")
+  ("=" (balance-windows) "balance") ;should maybe set to + since default binding is "C-x +"
 
 
   ;;;; close commands
