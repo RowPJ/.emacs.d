@@ -43,6 +43,8 @@
 (eval-after-load "company"
   '(add-to-list 'company-backends 'company-anaconda))
 
+;; use 79 as fill column in python buffers
+(setq-mode-local python-mode fill-column 79)
 
 ;; start flycheck with python mode. this will default to using mypy
 ;; and flake8 checkers; we also disable pylint
