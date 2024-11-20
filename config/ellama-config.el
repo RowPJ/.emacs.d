@@ -13,7 +13,7 @@
 (require 'use-package)
 
 ;; only run this config if we can load the openai key
-(setq openai-default-chat-model "gpt-4o-mini")
+(setq openai-default-chat-model "gpt-4o")
 
 (defun ellama-choose-chat-model ()
   "Sets ellama-provider to use a new openai chat model."
