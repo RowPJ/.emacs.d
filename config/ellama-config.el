@@ -20,7 +20,9 @@
   (interactive)
   (let ((model (cadr (read-multiple-choice "Select openai chat model: " ;prompt
 					   '((?3 "gpt-4o-mini")
-					     (?4 "gpt-4o-2024-08-06")))))) ; choices
+					     (?4 "gpt-4o-2024-08-06")
+                                             (?p "o1-preview")
+                                             (?m "o1-mini")))))) ; choices
     (setq ellama-provider
 	  (make-llm-openai :key openai-key
 			   :chat-model model))))
@@ -99,6 +101,20 @@ of the text."
 				      :chat-model "gpt-4o"))
 	       (message "switched to gpt-4o"))
 	 "gpt-4o"
+	 :exit nil)
+        ("p" (progn
+	       (setq ellama-provider
+		     (make-llm-openai :key openai-key
+				      :chat-model "o1-preview"))
+	       (message "switched to o1-preview"))
+	 "o1-preview"
+	 :exit nil)
+        ("m" (progn
+	       (setq ellama-provider
+		     (make-llm-openai :key openai-key
+				      :chat-model "o1-mini"))
+	       (message "switched to o1-mini"))
+	 "o1-mini"
 	 :exit nil)
 	("a" ellama-ask-about "ask-about")
 	("C" ellama-complete-code "complete-code")
