@@ -71,6 +71,7 @@
 (use-package treemacs-tab-bar :ensure t)
 (use-package treemacs-magit :ensure t)
 (use-package vscode-dark-plus-theme :ensure t)
+(use-package writeroom-mode :ensure t)
 (use-package yaml-mode :ensure t)
 (use-package yasnippet :ensure t)
 

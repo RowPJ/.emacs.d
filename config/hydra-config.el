@@ -121,6 +121,10 @@
   ("W" (kill-buffer (current-buffer)) "kill-buffer")
 
   ("r" recursive-edit "recursive-edit" :column "Other")
+  ("w" writeroom-mode "writeroom")
+  ("=" writeroom-adjust-width "writeroom-reset-width")
+  ("-" writeroom-decrease-width "writeroom-decrease-width")
+  ("+" writeroom-increase-width "writeroom-increase-width")
   ;; exit without doing anything
   ("q" nil "quit")
   ("RET" nil "quit")
