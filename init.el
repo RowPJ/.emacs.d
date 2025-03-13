@@ -59,6 +59,7 @@
   :custom (org-roam-directory (concat (file-name-as-directory sync-directory) (file-name-as-directory "org-roam")))
   :init (org-roam-db-autosync-enable))
 (use-package org-roam-ui :ensure t)
+(use-package ox-gfm :ensure t)
 (use-package read-aloud :ensure t)	;need to install flite to use this
 (use-package resize-window :ensure t)
 (use-package reveal-in-folder :ensure t)

@@ -40,6 +40,12 @@
 			   (local-set-key (kbd "C-M-n") 'org-move-subtree-down)
 			   (local-set-key (kbd "C-M-p") 'org-move-subtree-up)))
 
+;; make sure markdown export is loaded
+(require 'ox-md)
+;; load github-flavoured markdown export (for things like table
+;; support)
+(require 'ox-gfm)
+
 ;; TODO: implement a cross-platform SSH link type. The below doesn't work for various reasons.
 ;; (org-link-set-parameters
 ;;  "ssh"
