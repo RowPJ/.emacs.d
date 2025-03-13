@@ -1,12 +1,3 @@
-;; FIRST TIME SETUP:
-;; DEFINE THE FOLLOWING VARIABLES IN ~/.emacs.d/config/machine-local-config.el:
-;; 1. sync-directory - this is where files synchronized between
-;;                     machines running this config can be
-;;                     installed. It can be something like a OneDrive
-;;                     or SyncThing shared folder. This is currently
-;;                     used by org-roam to store notes, which should
-;;                     be synchronized across machines.
-
 ;; load files from custom config directory
 (add-to-list 'load-path "~/.emacs.d/config")
 
@@ -54,9 +45,12 @@
   (use-package magit-todos :ensure t)
   (use-package pdf-tools :ensure t))
 (use-package modus-themes :ensure t)
+(defvar user-roam-directory (file-name-as-directory"~/Sync/org-roam/") "Directory to store org-roam files in.")
+(when (not (mkdir user-roam-directory t))
+  (message (concat "Created org-roam directory " user-roam-directory ".")))
 (use-package org-roam
   :ensure t
-  :custom (org-roam-directory (concat (file-name-as-directory sync-directory) (file-name-as-directory "org-roam")))
+  :custom (org-roam-directory user-roam-directory)
   :init (org-roam-db-autosync-enable))
 (use-package org-roam-ui :ensure t)
 (use-package ox-gfm :ensure t)
