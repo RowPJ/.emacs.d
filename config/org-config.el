@@ -40,4 +40,11 @@
 			   (local-set-key (kbd "C-M-n") 'org-move-subtree-down)
 			   (local-set-key (kbd "C-M-p") 'org-move-subtree-up)))
 
+;; TODO: implement a cross-platform SSH link type. The below doesn't work for various reasons.
+;; (org-link-set-parameters
+;;  "ssh"
+;;  :follow (lambda (path)
+;;            (start-process-shell-command "terminal-ssh" nil
+;;                                         (format "gnome-terminal -- bash -c 'ssh %s; exec bash'" path))))
+
 (provide 'org-config)

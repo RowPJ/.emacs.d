@@ -1,3 +1,12 @@
+;; FIRST TIME SETUP:
+;; DEFINE THE FOLLOWING VARIABLES IN ~/.emacs.d/config/machine-local-config.el:
+;; 1. sync-directory - this is where files synchronized between
+;;                     machines running this config can be
+;;                     installed. It can be something like a OneDrive
+;;                     or SyncThing shared folder. This is currently
+;;                     used by org-roam to store notes, which should
+;;                     be synchronized across machines.
+
 ;; load files from custom config directory
 (add-to-list 'load-path "~/.emacs.d/config")
 
@@ -45,6 +54,11 @@
   (use-package magit-todos :ensure t)
   (use-package pdf-tools :ensure t))
 (use-package modus-themes :ensure t)
+(use-package org-roam
+  :ensure t
+  :custom (org-roam-directory (concat (file-name-as-directory sync-directory) (file-name-as-directory "org-roam")))
+  :init (org-roam-db-autosync-enable))
+(use-package org-roam-ui :ensure t)
 (use-package read-aloud :ensure t)	;need to install flite to use this
 (use-package resize-window :ensure t)
 (use-package reveal-in-folder :ensure t)
@@ -171,6 +185,9 @@
     (interactive)
     (find-file-other-window "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c i") 'open-init-file))
+
+;; binding for org roam commands
+(global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
 ;; add binding for making whitespace visible
 (global-set-key (kbd "C-c w") 'whitespace-mode)

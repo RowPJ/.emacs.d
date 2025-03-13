@@ -141,4 +141,18 @@
   ("s" ace-swap-window "swap-window")
   ("q" nil "Quit"))
 
+(defhydra hydra-org-roam (:color teal :quit t)
+  ("a" org-agenda "agenda")
+  ("f" org-roam-node-find "find")
+  ("d" org-roam-dailies-find-today "daily")
+  ("D" org-roam-dailies-find-date "daily-date")
+  ("n" org-roam-dailies-find-today "daily-next")
+  ("p" org-roam-dailies-find-today "daily-prev")
+  ("l" org-roam-node-insert "link")
+  ("o" org-roam-buffer-toggle "roam-buffer")
+  ("O" org-roam-buffer-display-dedicated "roam-buffer-dedicated")
+  ("v" org-roam-ui-mode "view")
+  ("s" org-roam-db-sync "db-sync")
+  ("q" nil "Quit"))
+
 (provide 'hydra-config)
