@@ -304,5 +304,10 @@
 ;; set amount of data emacs reads from processes at a time to 1MB (also lsp mode configuration recommendation)
 (setq read-process-output-max (* 1024 1024))
 
+;; customize behaviour for entering ediff
+(setq ediff-window-setup-function 'ediff-setup-windows-plain
+      ediff-split-window-function 'split-window-horizontally
+      ediff-control-frame-parameters '((name . "Ediff") (minibuffer . t)))
+
 ;; lookup help for symbol at point in cmake buffers
 (define-key cmake-mode-map (kbd "M-?") 'cmake-help)
