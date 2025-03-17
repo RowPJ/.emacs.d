@@ -72,6 +72,7 @@
 (use-package yasnippet :ensure t)
 
 ;; load other config files
+(require 'aider-config)
 (require 'common-lisp-config)
 (require 'clojure-config)
 (require 'tex-config)

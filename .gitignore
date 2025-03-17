@@ -17,3 +17,4 @@
 /.dap-breakpoints
 /config/openai-key.el
 /ido.last
+.aider*
