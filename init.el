@@ -134,6 +134,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; replace completing-read-function with ivy
+(ivy-mode 1)
+
 ;; load local configuration if it exists
 (if (file-exists-p "~/.emacs.d/config/machine-local-config.el")
     (require 'machine-local-config))
