@@ -21,3 +21,6 @@
 /config/openai-key.el
 /ido.last
 .aider*
+/org-roam.db
+/.org-id-locations
+/bookmarks
