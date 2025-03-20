@@ -44,6 +44,7 @@
 (when (eql system-type 'gnu/linux)
   (use-package magit-todos :ensure t)
   (use-package pdf-tools :ensure t))
+(use-package orgit :ensure t)
 (use-package modus-themes :ensure t)
 (defvar user-roam-directory (file-name-as-directory"~/Sync/org-roam/") "Directory to store org-roam files in.")
 (when (not (mkdir user-roam-directory t))
