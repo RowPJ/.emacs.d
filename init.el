@@ -69,6 +69,7 @@
 (use-package treemacs-tab-bar :ensure t)
 (use-package treemacs-magit :ensure t)
 (use-package vscode-dark-plus-theme :ensure t)
+(use-package which-key :ensure t)
 (use-package writeroom-mode :ensure t)
 (use-package yaml-mode :ensure t)
 (use-package yasnippet :ensure t)
@@ -317,6 +318,9 @@
 
 ;; lookup help for symbol at point in cmake buffers
 (define-key cmake-mode-map (kbd "M-?") 'cmake-help)
+
+;; enable which-key global minor mode for command hint popups
+(which-key-mode 1)
 
 ;; make org-mode links display as links in all buffers
 (global-orglink-mode 1)
