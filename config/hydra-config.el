@@ -119,6 +119,7 @@
   ("!" (tab-close-other 1) "just-tab-1")
   ;; close buffer
   ("W" (kill-buffer (current-buffer)) "kill-buffer")
+  ("C-S-t" tab-bar-mode "toggle-tab-bar")
 
   ("r" recursive-edit "recursive-edit" :column "Other")
   ("w" writeroom-mode "writeroom")
