@@ -38,7 +38,9 @@
 ;; bind keys for swapping subtree ordering
 (add-hook 'org-mode-hook (lambda ()
 			   (local-set-key (kbd "C-M-n") 'org-move-subtree-down)
-			   (local-set-key (kbd "C-M-p") 'org-move-subtree-up)))
+			   (local-set-key (kbd "C-M-p") 'org-move-subtree-up)
+                           (local-set-key (kbd "C-M-S-n") 'org-move-item-down)
+			   (local-set-key (kbd "C-M-S-p") 'org-move-item-up)))
 
 ;; make sure markdown export is loaded
 (require 'ox-md)
