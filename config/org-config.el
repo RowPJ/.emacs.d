@@ -1,3 +1,6 @@
+(require 'use-package)
+(use-package org-sidebar :ensure t)
+
 ;; enable executing python code blocks in org mode
 (org-babel-do-load-languages
  'org-babel-load-languages
