@@ -89,6 +89,7 @@
 (require 'openai-dalle)
 (require 'godot-config)
 (require 'go-config)
+(require 'markdown-config)
 
 
 (custom-set-variables
