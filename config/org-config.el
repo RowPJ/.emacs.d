@@ -45,6 +45,29 @@
                            (local-set-key (kbd "C-M-S-n") 'org-move-item-down)
 			   (local-set-key (kbd "C-M-S-p") 'org-move-item-up)))
 
+;; bind keys for navigating items in org mode (like list
+;; entries)
+(add-hook 'org-mode-hook (lambda ()
+			   (local-set-key (kbd "C-c M-n") 'org-next-item)
+			   (local-set-key (kbd "C-c M-p") 'org-previous-item)))
+
+;; Add CANCELED as an additional terminal TODO state. Headings marked
+;; with CANCELED are also treated as completed.
+(setq-default org-todo-keywords '((sequence "TODO" "|" "DONE" "CANCELED")))
+;; Set colours for TODO keywords.
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "red" :weight bold))
+        ("DONE" . (:foreground "green" :weight bold))
+        ("CANCELED" . (:foreground "gray" :weight bold :strike-through t))))
+
+(defun my/org-todo-face-canceled (limit)
+  "Apply a strikethrough and gray color to the entire heading of CANCELED items."
+  (when (re-search-forward "^\\*+ \\(CANCELED\\) \\(.*\\)" limit t)
+    (add-text-properties (match-beginning 0) (match-end 0)
+                         '(face (:foreground "gray" :strike-through t)))))
+(font-lock-add-keywords 'org-mode '((my/org-todo-face-canceled 0)))
+
+
 ;; make sure markdown export is loaded
 (require 'ox-md)
 ;; load github-flavoured markdown export (for things like table
