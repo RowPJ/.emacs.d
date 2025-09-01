@@ -11,6 +11,8 @@
 (use-package python-isort :ensure t)
 
 (require 'dap-python)
+;; NOTE: need to 'pip install debugpy' in the environment that you are
+;; debugging in for this to work.
 (setq dap-python-debugger 'debugpy)
 
 (use-package pyvenv
