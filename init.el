@@ -26,6 +26,7 @@
 (use-package company-math :ensure t)
 (use-package dap-mode :ensure t)
 (use-package define-word :ensure t)
+(use-package direnv :ensure t)
 (use-package dockerfile-mode :ensure t)
 (use-package eyebrowse :ensure t)
 (use-package flymake-aspell :ensure t)
@@ -327,3 +328,6 @@
 
 ;; make org-mode links display as links in all buffers
 (global-orglink-mode 1)
+
+;; enable direnv for setting environment variables
+(direnv-mode 1)
