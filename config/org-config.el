@@ -1,4 +1,5 @@
 (require 'use-package)
+(require 'org)
 (use-package org-sidebar :ensure t)
 
 ;; enable executing python code blocks in org mode
@@ -80,5 +81,29 @@
 ;;  :follow (lambda (path)
 ;;            (start-process-shell-command "terminal-ssh" nil
 ;;                                         (format "gnome-terminal -- bash -c 'ssh %s; exec bash'" path))))
+
+
+
+;; custom org link for running ediff on two files in a new frame
+(defun my/org-ediff-files (path)
+  "Run ediff on two files given as PATH, formatted as file1::file2, in a new frame."
+  (let* ((files (split-string path "::"))
+         (file-a (expand-file-name (car files)))
+         (file-b (expand-file-name (cadr files))))
+    (select-frame (make-frame))
+    (ediff file-a file-b)))
+(defun my/org-ediff-complete ()
+  "Prompt for two files and return a valid ediff link string."
+  (let ((file1 (read-file-name "First file: "))
+        (file2 (read-file-name "Second file: ")))
+    (format "ediff:%s::%s"
+            (abbreviate-file-name file1)
+            (abbreviate-file-name file2))))
+(org-link-set-parameters
+ "ediff"
+ :follow #'my/org-ediff-files
+ :complete #'my/org-ediff-complete
+ :help-echo "Run ediff on two files in a new frame")
+
 
 (provide 'org-config)
