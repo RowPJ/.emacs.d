@@ -7,7 +7,7 @@
       (cl-case system-type
 	(gnu/linux "/usr/bin/sbcl")
 	(darwin "/opt/homebrew/bin/sbcl")
-	(windows-nt "C:/SBCL/sbcl.exe")))
+	(windows-nt "sbcl")))
 
 (slime-setup '(slime-fancy slime-company))
 
