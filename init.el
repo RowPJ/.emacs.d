@@ -329,5 +329,6 @@
 ;; make org-mode links display as links in all buffers
 (global-orglink-mode 1)
 
-;; enable direnv for setting environment variables
-(direnv-mode 1)
+;; on linux, enable direnv for setting environment variables
+(when (eql system-type 'gnu/linux)
+  (direnv-mode 1))
