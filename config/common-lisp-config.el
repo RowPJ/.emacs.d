@@ -7,7 +7,7 @@
       (cl-case system-type
 	(gnu/linux "/usr/bin/sbcl")
 	(darwin "/opt/homebrew/bin/sbcl")
-	(windows-nt "sbcl")))
+	(windows-nt "sbcl --dynamic-space-size 8GB")))
 
 (slime-setup '(slime-fancy slime-company))
 
