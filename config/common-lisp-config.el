@@ -5,7 +5,7 @@
 ;; TODO: on gnu/linux, maybe check the path exists then use /opt/bin/sbcl if not?
 (setq inferior-lisp-program
       (cl-case system-type
-	(gnu/linux "/usr/bin/sbcl")
+	(gnu/linux "/usr/bin/sbcl --dynamic-space-size 8GB")
 	(darwin "/opt/homebrew/bin/sbcl")
 	(windows-nt "sbcl --dynamic-space-size 8GB")))
 
