@@ -1,6 +1,7 @@
 (require 'use-package)
 (require 'org)
 (use-package org-sidebar :ensure t)
+(use-package ox-pandoc :ensure t)
 
 ;; enable executing python code blocks in org mode
 (org-babel-do-load-languages
