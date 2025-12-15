@@ -92,6 +92,7 @@
 (require 'godot-config)
 (require 'go-config)
 (require 'markdown-config)
+(require 'rust-config)
 
 
 (custom-set-variables
