@@ -47,6 +47,7 @@
   (use-package magit-todos :ensure t)
   (use-package pdf-tools :ensure t))
 (use-package orgit :ensure t)
+(use-package multiple-cursors :ensure t)
 (use-package modus-themes :ensure t)
 (defvar user-roam-directory (file-name-as-directory"~/Sync/org-roam/") "Directory to store org-roam files in.")
 (when (not (mkdir user-roam-directory t))
@@ -143,6 +144,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; multiple-cursors keybinds
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; replace completing-read-function with ivy
 (ivy-mode 1)
