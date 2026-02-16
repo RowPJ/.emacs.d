@@ -32,7 +32,6 @@
 (use-package flymake-aspell :ensure t)
 (use-package flycheck :ensure t)
 (use-package inkpot-theme :ensure t)
-(use-package ivy :ensure t)
 (use-package lsp-mode
   :commands lsp
   :ensure t
@@ -67,7 +66,6 @@
 (use-package sicp :ensure t)
 (use-package solarized-theme :ensure t)
 (use-package ssh :ensure t)
-(use-package swiper :ensure t)
 (use-package treemacs :ensure t)
 (use-package treemacs-tab-bar :ensure t)
 (use-package treemacs-magit :ensure t)
@@ -94,6 +92,7 @@
 (require 'go-config)
 (require 'markdown-config)
 (require 'rust-config)
+(require 'minibuffer-completion)
 
 
 (custom-set-variables
@@ -155,9 +154,6 @@
 (global-set-key (kbd "C-S-c C-<") 'mc/mark-all-in-region)
 (global-set-key (kbd "C-S-c C->") 'mc/mark-all-in-region-regexp)
 
-;; replace completing-read-function with ivy
-(ivy-mode 1)
-
 ;; load local configuration if it exists
 (if (file-exists-p "~/.emacs.d/config/machine-local-config.el")
     (require 'machine-local-config))
@@ -189,10 +185,8 @@
 (global-set-key (kbd "C-c l") 'hydra-layout/body)
 (global-set-key (kbd "C-c C-s") 'hydra-ispell/body)
 (global-set-key (kbd "C-c h") 'hydra/body)
-(global-set-key (kbd "C-c s") 'swiper)
 (global-set-key (kbd "C-c S") 'rg-menu)
-(global-set-key (kbd "C-c M-s") 'swiper-thing-at-point)
-(global-set-key (kbd "C-c f") 'reveal-in-folder) ;open file in finder / file explorer etc.
+(global-set-key (kbd "C-c F") 'reveal-in-folder) ;open file in finder / file explorer etc.
 ;;(global-set-key (kbd "M-\\") 'avy-goto-char) ;this binding is easy to type, could use it for something else later
 (progn
   (global-set-key (kbd "M-u") 'upcase-dwim)
@@ -217,12 +211,6 @@
 (global-set-key (kbd "C-M-s-q") 'hydra-avy/body)
 (global-set-key (kbd "C-M-s-w") 'hydra-windows/body)
 (global-set-key (kbd "C-M-s-e") 'hydra-layout/body)
-
-;; don't know what this does
-(autoload 'idomenu "idomenu" nil t)
-
-;; enable ido mode for interactive find-file and switch-buffer
-(ido-mode 1)
 
 ;; on macos, make command and option keys meta key
 (setq mac-option-modifier 'meta

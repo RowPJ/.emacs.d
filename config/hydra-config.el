@@ -148,7 +148,8 @@
 
 (defhydra hydra-org-roam (:color teal :quit t)
   ("q" nil "quit")
-  ("f" org-roam-node-find "find note" :column "navigation")
+  ("f" consult-org-roam-file-find "find note" :column "navigation")
+  ("b" consult-org-roam-backlinks "search backlinks" :column "navigation")
   ("o" org-open-at-point-global "follow org link")
   ("l" org-roam-node-insert "insert note link")
   ("L" org-store-link "store org link")
@@ -162,8 +163,6 @@
   ("P" org-roam-dailies-find-previous-note "previous daily note")
   ("d" org-sidebar-toggle "org sidebar toggle" :column "misc")
   ("s" org-roam-db-sync "sync roam db")
-  ("v" org-roam-ui-mode "view notes graph")
-  ("b" org-roam-buffer-toggle "note status")
-  ("B" org-roam-buffer-display-dedicated "note status (dedicated)"))
+  ("v" org-roam-ui-mode "view notes graph"))
 
 (provide 'hydra-config)
