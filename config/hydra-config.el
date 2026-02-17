@@ -2,6 +2,21 @@
 (use-package hydra :ensure t)
 (use-package ivy-hydra :ensure t)
 
+
+;; Hydra Behavior Control Options:
+;;     :exit - When set to t, all heads will exit the hydra by default unless overridden
+;;     :foreign-keys - Controls what happens when a key not defined in any head is pressed:
+;;         nil (default) - Exit hydra and execute the foreign key command
+;;         warn - Show a warning message and don't exit hydra
+;;         run - Execute the foreign key command without exiting hydra
+;;     :color - A shortcut that sets both :exit and :foreign-keys:
+;;         red - :exit nil :foreign-keys nil
+;;         blue - :exit t :foreign-keys nil
+;;         amaranth - :exit nil :foreign-keys warn
+;;         teal - :exit t :foreign-keys warn
+;;         pink - :exit nil :foreign-keys run
+
+
 ;; placeholder root hydra entry point
 (defhydra hydra (:exit t :color amaranth)
   "hydra"
