@@ -43,10 +43,24 @@
 (use-package flycheck :ensure t)
 (use-package inkpot-theme :ensure t)
 (use-package lsp-mode
-  :commands lsp
+  :commands lsp lsp-deferred
   :ensure t
   :init (setq lsp-keymap-prefix "C-c C-l")
-  :config (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map))
+  :config
+  (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
+  (setq lsp-prefer-flymake nil)
+  (setq lsp-idle-delay 0.500)
+  (setq lsp-log-io nil))
+(use-package lsp-ui
+  :ensure t
+  :after lsp-mode
+  :hook (lsp-mode . lsp-ui-mode)
+  :config
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-header t
+        lsp-ui-doc-include-signature t
+        lsp-ui-sideline-enable t
+        lsp-ui-sideline-show-code-actions t))
 ;; enable lsp as a backend for flycheck
 (require 'lsp-diagnostics)
 (lsp-diagnostics-flycheck-enable)
