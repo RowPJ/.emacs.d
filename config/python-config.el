@@ -5,16 +5,19 @@
 ;; python3-flake8 black isort"
 
 (require 'use-package)
-(use-package anaconda-mode :ensure t)
-(use-package company-anaconda :ensure t)
-(use-package python-black :ensure t)
-(use-package python-isort :ensure t)
 
+;;;;;;;;;;;;;;;
+;; DAP SETUP ;;
+;;;;;;;;;;;;;;;
 (require 'dap-python)
 ;; NOTE: need to 'pip install debugpy' in the environment that you are
 ;; debugging in for this to work.
 (setq dap-python-debugger 'debugpy)
+(add-hook 'python-mode-hook 'dap-mode)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; VIRTUAL ENVIRONMENT MANAGEMENT ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package pyvenv
   :ensure t
   :config
@@ -27,10 +30,20 @@
   (setq pyvenv-post-deactivate-hooks
         (list (lambda ()
                 (setq python-shell-interpreter "python")))))
-
 (use-package pyvenv-auto
   :ensure t
   :hook ((python-mode . pyvenv-auto-run)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PYRIGHT LANGUAGE SERVER ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package lsp-pyright
+  :ensure t
+  :after lsp-mode
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp-deferred)))
+  :config (flycheck-add-next-checker 'lsp 'python-pyright))
 
 ;; add remote python lsp client for tramp
 ;; (lsp-register-client
@@ -40,29 +53,20 @@
 ;;                   :server-id 'pyls-remote))
 
 ;; configure python development environment
-(add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'anaconda-mode 'anaconda-eldoc-mode)
-(eval-after-load "company"
-  '(add-to-list 'company-backends 'company-anaconda))
+;; (add-hook 'python-mode-hook 'anaconda-mode)
+;; (add-hook 'anaconda-mode 'anaconda-eldoc-mode)
 
 ;; use 79 as fill column in python buffers
 (setq-mode-local python-mode fill-column 79)
 
-;; start flycheck with python mode. this will default to using mypy
-;; and flake8 checkers; we also disable pylint
-(setq-default flycheck-disabled-checkers (cons 'python-pylint flycheck-disabled-checkers))
-(add-hook 'python-mode-hook 'flycheck-mode)
-
-(add-hook 'python-mode-hook 'dap-mode)
-
-;; run python black on save (reformats code according to standards)
-(require 'python-black)
-(add-hook 'python-mode-hook 'python-black-on-save-mode)
-
-;; run isort on save. we add this after the black hook so that it runs
-;; first.
-(require 'python-isort)
-(add-hook 'python-mode-hook 'python-isort-on-save-mode)
+(use-package python-black :ensure t
+  :config
+  ;; (add-hook 'python-mode-hook 'python-black-on-save-mode)
+  )
+(use-package python-isort :ensure t
+  :config
+  ;; (add-hook 'python-mode-hook 'python-isort-on-save-mode)
+  )
 
 ;; indent / de-indent hydra
 (defhydra python-indent-shift ()
@@ -71,5 +75,20 @@
 (define-key flycheck-mode-map (kbd "C-c <tab>") (lambda ()
                                                   (interactive)
                                                   (python-indent-shift/body)))
+
+
+;;;;;;;;;;;;;;;;;;;;
+;; FLYCHECK SETUP ;;
+;;;;;;;;;;;;;;;;;;;;
+;; start flycheck with python mode. this will default to using mypy
+;; and flake8 checkers; we also disable pylint
+;; (setq-default flycheck-disabled-checkers (cons 'python-pylint flycheck-disabled-checkers))
+(add-hook 'python-mode-hook 'flycheck-mode)
+(flycheck-add-next-checker 'lsp 'python-flake8)
+(flycheck-add-next-checker 'lsp 'python-ruff)
+(flycheck-add-next-checker 'lsp 'python-pycompile)
+(flycheck-add-next-checker 'lsp 'python-pyright)
+(flycheck-add-next-checker 'lsp 'python-mypy)
+(flycheck-add-next-checker 'lsp 'python-pylint)
 
 (provide 'python-config)
