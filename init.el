@@ -22,8 +22,18 @@
 (use-package avy :ensure t)
 (use-package ace-window :ensure t)
 (use-package csv-mode :ensure t)
-(use-package company :ensure t)
-(use-package company-math :ensure t)
+(use-package company :ensure t
+  :config
+  (setq company-idle-delay 0.0
+        company-minimum-prefix-length 1)
+  (add-to-list 'company-backends 'company-capf))
+(use-package company-math :ensure t
+  :config
+  (add-to-list 'company-backends 'company-math-symbols-unicode))
+(use-package consult-company :ensure t
+  :config
+  :bind (:map company-mode-map
+              ("C-c /" . consult-company)))
 (use-package dap-mode :ensure t)
 (use-package define-word :ensure t)
 (use-package direnv :ensure t)
