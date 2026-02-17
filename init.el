@@ -73,8 +73,14 @@
 (use-package which-key :ensure t)
 (use-package writeroom-mode :ensure t)
 (use-package yaml-mode :ensure t)
-(use-package yasnippet :ensure t)
-
+(use-package yasnippet :ensure t
+  :config
+  (yas-global-mode 1))
+(use-package yasnippet-snippets :ensure t)
+(use-package yasnippet-capf
+  :ensure t
+  :config
+  (add-to-list 'completion-at-point-functions #'yasnippet-capf))
 ;; load other config files
 (require 'aider-config)
 (require 'common-lisp-config)

@@ -42,6 +42,9 @@
   ("C-;" . embark-dwim))
 
 (use-package embark-consult :ensure t)
+(use-package consult-yasnippet :ensure t
+  :config
+  (global-set-key (kbd "C-c y") 'consult-yasnippet))
 
 (use-package consult-flycheck
   :ensure t
