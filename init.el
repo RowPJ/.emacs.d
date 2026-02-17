@@ -79,7 +79,7 @@
   :ensure t
   :custom (org-roam-directory user-roam-directory)
   (org-roam-node-display-template (concat "${title:*} " (propertize "${tags:40}" 'face 'org-tag)))
-  :init (org-roam-db-autosync-enable))
+  :config (org-roam-db-autosync-mode))
 (use-package org-roam-ui :ensure t)
 (use-package orglink :ensure t)
 (use-package ox-gfm :ensure t)
