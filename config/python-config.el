@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 ;; requirements:
 ;; Need to install pyflakes, black, and isort executables on your
 ;; machine.

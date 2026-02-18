@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 (require 'use-package)
 (require 'flycheck)
 

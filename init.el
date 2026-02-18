@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 ;; load files from custom config directory
 (add-to-list 'load-path "~/.emacs.d/config")
 

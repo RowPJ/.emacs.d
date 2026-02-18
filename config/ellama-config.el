@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 ;; This file configures Ellama for GPT API integration.
 
 ;; INSTRUCTIONS TO SETUP ELLAMA WITH YOUR OPENAI API KEY:

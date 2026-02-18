@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 (require 'use-package)
 
 ;; (setenv "GOPATH" (concat (getenv "HOME") "/go"))

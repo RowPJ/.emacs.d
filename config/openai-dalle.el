@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 (require 'url)
 (require 'json)
 

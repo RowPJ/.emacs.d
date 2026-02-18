@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 (require 'use-package)
 (use-package slime :ensure t)
 (use-package slime-company :ensure t)

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 ;; (coded by gpt)
 (defun randomise-case-region ()
   (interactive)

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 (use-package lsp-mode :ensure t)
 (use-package cmake-mode :ensure t)
 (use-package flycheck-clang-analyzer :ensure t)

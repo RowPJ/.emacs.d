@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 ;; avoid unset variable warning popup at startup
 (setq latex-extra-mode nil)
 

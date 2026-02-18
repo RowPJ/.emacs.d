@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 (require 'use-package)
 (require 'org)
 (use-package org-sidebar :ensure t)

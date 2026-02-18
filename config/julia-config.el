@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 (require 'use-package)
 
 (cl-case system-type

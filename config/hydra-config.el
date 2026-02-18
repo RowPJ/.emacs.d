@@ -1,3 +1,4 @@
+;; -*- lexical-binding: nil; -*-
 (require 'use-package)
 (use-package hydra :ensure t)
 (use-package ivy-hydra :ensure t)

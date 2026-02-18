@@ -1,4 +1,5 @@
 ;; For all setttings see: https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
+;; -*- lexical-binding: nil; -*-
 (use-package lsp-mode
   :ensure t
   :init
