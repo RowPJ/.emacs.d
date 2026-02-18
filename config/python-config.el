@@ -92,6 +92,13 @@
                                                   (interactive)
                                                   (python-indent-shift/body)))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PYDOC SETUP (GENERAL DOCUMENTATION LOOKUP) ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package pydoc
+  :ensure t
+  :config
+  (define-key python-ts-mode-map (kbd "M-?") 'pydoc-at-point))
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; FLYCHECK SETUP ;;
