@@ -93,6 +93,7 @@
 (use-package sicp :ensure t)
 (use-package solarized-theme :ensure t)
 (use-package ssh :ensure t)
+(use-package tree-sitter :ensure t)
 (use-package treemacs :ensure t)
 (use-package treemacs-tab-bar :ensure t)
 (use-package treemacs-magit :ensure t)
