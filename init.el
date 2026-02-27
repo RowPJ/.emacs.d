@@ -75,6 +75,7 @@
   (use-package pdf-tools :ensure t))
 (use-package orgit :ensure t)
 (use-package multiple-cursors :ensure t)
+(use-package ace-mc :ensure t)
 (use-package modus-themes :ensure t)
 (defvar user-roam-directory (file-name-as-directory"~/Sync/org-roam/") "Directory to store org-roam files in.")
 (when (not (mkdir user-roam-directory t))
@@ -188,6 +189,7 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-S-c C-<") 'mc/mark-all-in-region)
 (global-set-key (kbd "C-S-c C->") 'mc/mark-all-in-region-regexp)
+(global-set-key (kbd "C-S-c a") 'ace-mc-add-multiple-cursors)
 
 ;; load local configuration if it exists
 (if (file-exists-p "~/.emacs.d/config/machine-local-config.el")
