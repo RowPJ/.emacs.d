@@ -25,9 +25,10 @@
 (use-package csv-mode :ensure t)
 (use-package company :ensure t
   :config
-  (setq company-idle-delay 0.0
+  (setq company-idle-delay 0.35
         company-minimum-prefix-length 1)
-  (add-to-list 'company-backends 'company-capf))
+  (add-to-list 'company-backends 'company-capf)
+  (add-to-list 'company-backends 'company-files))
 (use-package company-math :ensure t
   :config
   (add-to-list 'company-backends 'company-math-symbols-unicode))
