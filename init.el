@@ -208,6 +208,10 @@
 ;; show column number in mode line
 (column-number-mode 1)
 
+;; track window layout changes to be able to undo them (C-c Left and
+;; C-c Right to go back and forward in window layout history)
+(winner-mode 1)
+
 ;; custom keybinds
 (global-set-key (kbd "C-c a") 'avy-goto-char)
 (setq avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l ?\;))
