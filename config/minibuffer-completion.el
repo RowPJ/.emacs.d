@@ -36,6 +36,8 @@
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)))
 
+(use-package consult-lsp :ensure t)
+
 (use-package embark
   :ensure t
   :bind
