@@ -55,6 +55,11 @@
   ;; (setq lsp-signature-auto-activate nil)
 
   ;; comment to disable rustfmt on save
-  (setq rustic-format-on-save t))
+  (setq rustic-format-on-save t)
+  :init
+  ;; use rust-ts-mode (tree sitter) on linux for better understanding
+  ;; of syntax then rust-mode
+  (if (eql system-type 'gnu/linux)
+      (setq rust-mode-treesitter-derive t)))
 
 (provide 'rust-config)
