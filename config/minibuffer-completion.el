@@ -36,7 +36,9 @@
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)))
 
-(use-package consult-lsp :ensure t)
+(use-package consult-lsp :ensure t
+  :bind (("C-c C-l C-s" . consult-lsp-symbols)
+         ("C-c C-l C-f" . consult-lsp-diagnostics)))
 
 (use-package embark
   :ensure t
