@@ -37,8 +37,10 @@
          ("M-g M-g" . consult-goto-line)))
 
 (use-package consult-lsp :ensure t
-  :bind (("C-c C-l C-s" . consult-lsp-symbols)
-         ("C-c C-l C-f" . consult-lsp-diagnostics)))
+  :config
+  (with-eval-after-load 'lsp-mode
+    (define-key lsp-mode-map (kbd "C-c C-l C-s") 'consult-lsp-symbols)
+    (define-key lsp-mode-map (kbd "C-c C-l C-f") 'consult-lsp-diagnostics)))
 
 (use-package embark
   :ensure t
