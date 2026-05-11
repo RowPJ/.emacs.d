@@ -34,7 +34,8 @@
          ("C-c M" . consult-global-mark)
          ("C-c C-k" . consult-kmacro)
          ("M-g g" . consult-goto-line)
-         ("M-g M-g" . consult-goto-line)))
+         ("M-g M-g" . consult-goto-line)
+         ("C-c C-f" . consult-find)))
 
 (use-package consult-lsp :ensure t
   :config
