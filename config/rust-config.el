@@ -62,4 +62,24 @@
   (if (eql system-type 'gnu/linux)
       (setq rust-mode-treesitter-derive t)))
 
+(setq dap-cpptools-extension-version "1.5.1")
+(with-eval-after-load 'lsp-rust
+  (require 'dap-cpptools))
+(with-eval-after-load 'dap-cpptools
+  (dap-register-debug-template "Rust::CppTools Run Configuration"
+                               (list :type "cppdbg"
+                                     :request "launch"
+                                     :name "Rust::Run"
+                                     :MIMode "gdb"
+                                     :miDebuggerPath "rust-gdb"
+                                     :environment []
+                                     :program "${workspaceFolder}/target/debug/hello / replace with binary"
+                                     :cwd "${workspaceFolder}"
+                                     :console "external"
+                                     :dap-compilation "cargo build"
+                                     :dap-compilation-dir "${workspaceFolder}")))
+(with-eval-after-load 'dap-mode
+  (setq dap-default-terminal-kind "integrated")
+  (dap-auto-configure-mode 1))
+
 (provide 'rust-config)
