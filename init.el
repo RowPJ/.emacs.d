@@ -46,6 +46,7 @@
 (use-package flymake-aspell :ensure t)
 (use-package flycheck :ensure t)
 (use-package inkpot-theme :ensure t)
+(use-package naysayer-theme :ensure t)
 (use-package lsp-mode
   :commands lsp lsp-deferred
   :ensure t
