@@ -55,7 +55,11 @@
   ;; (setq lsp-signature-auto-activate nil)
 
   ;; comment to disable rustfmt on save
-  (setq rustic-format-on-save t)
+  (setq rustic-format-trigger 'on-save)
+  ;; format assuming we are using most recent rust edition. this
+  ;; should be overridden in .dir-locals.el if a different version is
+  ;; desired.
+  (setq rustic-rustfmt-args "--edition 2024")
   :init
   ;; use rust-ts-mode (tree sitter) on linux for better understanding
   ;; of syntax then rust-mode
