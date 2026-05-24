@@ -63,7 +63,8 @@
   :init
   ;; use rust-ts-mode (tree sitter) on linux for better understanding
   ;; of syntax then rust-mode
-  (if (eql system-type 'gnu/linux)
+  (if (or (eql system-type 'gnu/linux)
+          (eql system-type 'darwin))
       (setq rust-mode-treesitter-derive t)))
 
 (setq dap-cpptools-extension-version "1.5.1")
