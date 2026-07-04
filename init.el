@@ -130,6 +130,7 @@
 (require 'markdown-config)
 (require 'rust-config)
 (require 'minibuffer-completion)
+(require 'modal-editing)
 
 
 (custom-set-variables
