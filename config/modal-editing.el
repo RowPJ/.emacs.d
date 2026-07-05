@@ -64,7 +64,7 @@
    '("o" . meow-block)
    '("O" . meow-to-block)
    '("p" . meow-yank)
-   '("p" . meow-yank-pop)
+   '("P" . meow-yank-pop)
    '("q" . meow-quit)
    '("Q" . meow-goto-line)
    '("r" . meow-replace)
