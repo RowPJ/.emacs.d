@@ -86,7 +86,9 @@
 
 (use-package meow
   :ensure t
-  :config (progn (meow-setup) (meow-global-mode)))    
+  :config (progn (meow-setup)
+                 (meow-global-mode)
+                 (define-key meow-keymap (kbd "C-c RET") #'meow-insert-exit)))
 
 (use-package meow-tree-sitter
   :ensure t
