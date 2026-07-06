@@ -89,7 +89,8 @@
 
 (use-package key-chord
   :ensure t
-  :config (key-chord-mode 1))
+  :config (progn (setq key-chord-two-keys-delay 0.05) ;default is 0.1 seconds, we use 0.05 seconds.
+                 (key-chord-mode 1)))
 
 (use-package meow
   :ensure t
