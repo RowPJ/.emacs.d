@@ -84,6 +84,7 @@
    '("Y" . meow-sync-grab)
    '("z" . meow-pop-selection)
    '("'" . repeat)
+   '("=" . indent-region)
    '("<escape>" . ignore)))
 
 (use-package meow
