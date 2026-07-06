@@ -97,6 +97,7 @@
   :config (progn (meow-setup)
                  (meow-global-mode)
                  (key-chord-define meow-insert-state-keymap "fd" #'meow-insert-exit)
+                 (key-chord-define meow-normal-state-keymap "gh" #'avy-goto-char-timer)
                  (add-to-list 'meow-char-thing-table '(?u . url))
                  (add-to-list 'meow-char-thing-table '(?\s . whitespace))))
 
