@@ -99,7 +99,11 @@
                  (key-chord-define meow-insert-state-keymap "fd" #'meow-insert-exit)
                  (key-chord-define meow-normal-state-keymap "gh" #'avy-goto-char-timer)
                  (add-to-list 'meow-char-thing-table '(?u . url))
-                 (add-to-list 'meow-char-thing-table '(?\s . whitespace))))
+                 (add-to-list 'meow-char-thing-table '(?\s . whitespace))
+                 ;; disable meow in all magit buffers (otherwise
+                 ;; navigation commands override log and drop on k and
+                 ;; l)
+                 (add-hook 'magit-mode-hook (lambda () (meow-mode -1)))))
 
 (use-package meow-tree-sitter
   :ensure t
