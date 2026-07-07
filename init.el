@@ -301,7 +301,7 @@
 (setq magit-log-section-commit-count 40) ;; default value is 10
 
 ;; adjust default text size
-(set-face-attribute 'default nil :height (case system-type
+(set-face-attribute 'default nil :height (cl-case system-type
 					   (gnu/linux 110)
 					   (darwin 150)
 					   (windows-nt 150)))
