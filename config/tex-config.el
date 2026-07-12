@@ -8,6 +8,7 @@
 (use-package latex-math-preview :ensure t)
 (use-package latex-preview-pane :ensure t)
 (use-package lsp-latex :ensure t)
+(use-package git-overleaf :ensure t)
 
 (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
 
