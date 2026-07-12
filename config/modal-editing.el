@@ -103,6 +103,7 @@
                  ;; disable meow in all magit buffers (otherwise
                  ;; navigation commands override log and drop on k and
                  ;; l)
+                 (add-hook 'Buffer-menu-mode-hook (lambda () (meow-mode -1)))
                  (add-hook 'magit-mode-hook (lambda () (meow-mode -1)))))
 
 (use-package meow-tree-sitter
