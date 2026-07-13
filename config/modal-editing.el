@@ -20,6 +20,7 @@
    '("8" . meow-digit-argument)
    '("9" . meow-digit-argument)
    '("0" . meow-digit-argument)
+   '("SPC" . set-mark-command)
    '("/" . meow-keypad-describe-key)
    '("?" . meow-cheatsheet))
   (meow-normal-define-key
@@ -35,6 +36,7 @@
    '("1" . meow-expand-1)
    '("-" . negative-argument)
    '("h" . meow-reverse)
+   '("H" . avy-goto-char-timer)
    '("," . meow-inner-of-thing)
    '("." . meow-bounds-of-thing)
    '("[" . meow-beginning-of-thing)
@@ -87,6 +89,10 @@
    '("z" . meow-pop-selection)
    '("'" . repeat)
    '("=" . indent-region)
+   '("(" . backward-sexp)
+   '(")" . forward-sexp)
+   '("{" . backward-paragraph)
+   '("}" . forward-paragraph)
    '("<escape>" . ignore)))
 
 (use-package key-chord
@@ -99,7 +105,6 @@
   :config (progn (meow-setup)
                  (meow-global-mode)
                  (key-chord-define meow-insert-state-keymap "fd" #'meow-insert-exit)
-                 (key-chord-define meow-normal-state-keymap "gh" #'avy-goto-char-timer)
                  (add-to-list 'meow-char-thing-table '(?u . url))
                  (add-to-list 'meow-char-thing-table '(?\s . whitespace))
                  ;; disable meow in all magit buffers (otherwise
