@@ -7,6 +7,7 @@
   (meow-motion-define-key
    '("k" . meow-next)
    '("l" . meow-prev)
+   '("H" . avy-goto-char-timer)
    '("<escape>" . ignore))
   (meow-leader-define-key
    ;; Use SPC (0-9) for digit arguments.
