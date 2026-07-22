@@ -16,8 +16,8 @@
 ;; src/eigensolver.cpp src/tests/test_eigensolver.cpp -llapack -o
 ;; eigensolver)
 
-(add-hook 'c-mode-hook 'lsp-mode)
-(add-hook 'c++-mode-hook 'lsp-mode)
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
 
 
 (with-eval-after-load "cc-mode"
