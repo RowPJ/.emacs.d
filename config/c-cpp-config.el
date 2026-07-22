@@ -2,6 +2,7 @@
 (use-package lsp-mode :ensure t)
 (use-package cmake-mode :ensure t)
 (use-package flycheck-clang-analyzer :ensure t)
+(use-package ccls :ensure t)
 
 (require 'dap-cpptools)
 
@@ -26,7 +27,8 @@
 
 (with-eval-after-load 'flycheck
    (require 'flycheck-clang-analyzer)
-   (flycheck-clang-analyzer-setup))
+   (flycheck-clang-analyzer-setup)
+   (flycheck-add-next-checker 'clang-analyzer 'c/c++-cppcheck))
 
 
 (provide 'c-cpp-config)
