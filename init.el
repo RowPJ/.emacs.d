@@ -119,6 +119,7 @@
 (require 'clojure-config)
 (require 'tex-config)
 (require 'python-config)
+(require 'java-config)
 (require 'julia-config)
 (require 'c-cpp-config)
 (require 'hydra-config)
