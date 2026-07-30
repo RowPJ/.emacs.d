@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (require 'use-package)
 
 (require 'lsp)
