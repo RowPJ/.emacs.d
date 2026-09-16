@@ -378,3 +378,9 @@
 (when (eql system-type 'gnu/linux)
   (direnv-mode 1))
 (put 'narrow-to-region 'disabled nil)
+
+
+;; highlight current line at all times (especially helpful in meow's
+;; insert mode, where the cursor is often too thin to see if you lose
+;; track of it).
+(global-hl-line-mode 1)
