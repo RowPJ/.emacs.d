@@ -112,6 +112,9 @@
                  ;; navigation commands override log and drop on k and
                  ;; l)
                  (add-hook 'Buffer-menu-mode-hook (lambda () (meow-mode -1)))
+                 (add-hook 'pdf-view-mode-hook (lambda () (meow-mode -1)))
+                 (add-hook 'doom-mode-hook (lambda () (meow-mode -1)))
+                 (add-hook 'cfrs-input-mode-hook (lambda () (meow-mode -1)))
                  (add-hook 'magit-mode-hook (lambda () (meow-mode -1)))))
 
 (use-package meow-tree-sitter
