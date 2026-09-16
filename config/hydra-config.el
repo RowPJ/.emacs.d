@@ -52,6 +52,26 @@
 (defhydra hydra-layout (:color amaranth)
   "layout"
 
+  ("M-J" (shrink-window-horizontally 1) "")
+  ("M-K" (shrink-window 1) "")
+  ("M-L" (shrink-window -1) "")
+  ("M-:" (shrink-window-horizontally -1) "")
+
+  ("j" windmove-left "move-left")
+  ("k" windmove-down "move-down")
+  ("l" windmove-up "move-up")
+  (";" windmove-right "move-right")
+
+  ("J" windmove-swap-states-left "swap-left")
+  ("K" windmove-swap-states-down "swap-down")
+  ("L" windmove-swap-states-up "swap-up")
+  (":" windmove-swap-states-right "swap-right")
+
+  ("M-j" (shrink-window-horizontally 10) "shrink-_")
+  ("M-k" (shrink-window 10) "shrink-|")
+  ("M-l" (shrink-window -10) "grow-|")
+  ("M-;" (shrink-window-horizontally -10) "grow-_")
+
   ;; no-column variants of below commands
   ;; kill other tabs by number
   ("@" (tab-close-other 2))
