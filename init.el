@@ -377,3 +377,4 @@
 ;; on linux, enable direnv for setting environment variables
 (when (eql system-type 'gnu/linux)
   (direnv-mode 1))
+(put 'narrow-to-region 'disabled nil)
