@@ -108,6 +108,8 @@
                  (key-chord-define meow-insert-state-keymap "fd" #'meow-insert-exit)
                  (add-to-list 'meow-char-thing-table '(?u . url))
                  (add-to-list 'meow-char-thing-table '(?\s . whitespace))
+                 ;; default to insert state in shell mode
+                 (cl-pushnew '(shell-mode . insert) meow-mode-state-list)
                  ;; disable meow in all magit buffers (otherwise
                  ;; navigation commands override log and drop on k and
                  ;; l)
